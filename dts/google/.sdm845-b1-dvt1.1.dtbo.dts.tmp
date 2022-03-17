@@ -1,0 +1,5536 @@
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts"
+# 1 "<built-in>" 1
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts"
+/dts-v1/;
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common-v2.1.dtsi" 1
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi"
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 1
+# 16 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi"
+/plugin/;
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/qcom,gcc-sdm845.h" 1
+# 19 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/qcom,camcc-sdm845.h" 1
+# 20 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/qcom,dispcc-sdm845.h" 1
+# 21 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/qcom,rpmh.h" 1
+# 22 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 1
+
+
+
+
+
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/irq.h" 1
+# 9 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/interrupt-controller/arm-gic.h" 2
+# 23 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/regulator/qcom,rpmh-regulator.h" 1
+# 24 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/mdss-10nm-pll-clk.h" 1
+# 25 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pmic-overlay.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pmic-overlay.dtsi"
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/gpio/gpio.h" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pmic-overlay.dtsi" 2
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/pmi8998.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/pmi8998.dtsi"
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/spmi/spmi.h" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/pmi8998.dtsi" 2
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/thermal/thermal.h" 1
+# 16 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/pmi8998.dtsi" 2
+
+&spmi_bus {
+ pmi8998_lsid0: qcom,pmi8998@2 {
+  compatible = "qcom,spmi-pmic";
+  reg = <0x2 0>;
+  #address-cells = <2>;
+  #size-cells = <0>;
+
+  pmi8998_revid: qcom,revid@100 {
+   compatible = "qcom,qpnp-revid";
+   reg = <0x100 0x100>;
+   qcom,fab-id-valid;
+  };
+
+  pmi8998_misc: qcom,misc@900 {
+   compatible = "qcom,qpnp-misc";
+   reg = <0x900 0x100>;
+  };
+
+  qcom,power-on@800 {
+   compatible = "qcom,qpnp-power-on";
+   reg = <0x800 0x100>;
+  };
+
+  pmi8998_tz: qcom,temp-alarm@2400 {
+   compatible = "qcom,spmi-temp-alarm";
+   reg = <0x2400 0x100>;
+   interrupts = <0x2 0x24 0x0 1>;
+   io-channels = <&pmi8998_rradc 7>;
+   io-channel-names = "thermal";
+   #thermal-sensor-cells = <0>;
+  };
+
+  pmi8998_gpios: pinctrl@c000 {
+   compatible = "qcom,spmi-gpio";
+   reg = <0xc000 0xe00>;
+   interrupts = <0x2 0xc0 0 0>,
+     <0x2 0xc1 0 0>,
+     <0x2 0xc2 0 0>,
+     <0x2 0xc4 0 0>,
+     <0x2 0xc5 0 0>,
+     <0x2 0xc7 0 0>,
+     <0x2 0xc8 0 0>,
+     <0x2 0xc9 0 0>,
+     <0x2 0xca 0 0>,
+     <0x2 0xcb 0 0>,
+     <0x2 0xcd 0 0>;
+   interrupt-names = "pmi8998_gpio1", "pmi8998_gpio2",
+     "pmi8998_gpio3", "pmi8998_gpio5",
+     "pmi8998_gpio6", "pmi8998_gpio8",
+     "pmi8998_gpio9", "pmi8998_gpio10",
+     "pmi8998_gpio11", "pmi8998_gpio12",
+     "pmi8998_gpio14";
+   gpio-controller;
+   #gpio-cells = <2>;
+   qcom,gpios-disallowed = <4 7 13>;
+  };
+
+  pmi8998_qnovo: qcom,qpnp-qnovo@1500 {
+   compatible = "qcom,qpnp-qnovo";
+   reg = <0x1500 0x100>;
+   interrupts = <0x2 0x15 0x0 0>;
+   interrupt-names = "ptrain-done";
+   qcom,pmic-revid = <&pmi8998_revid>;
+  };
+
+  pmi8998_charger: qcom,qpnp-smb2 {
+   compatible = "qcom,qpnp-smb2";
+   #address-cells = <1>;
+   #size-cells = <1>;
+   #cooling-cells = <2>;
+
+   qcom,pmic-revid = <&pmi8998_revid>;
+
+   io-channels = <&pmi8998_rradc 8>,
+          <&pmi8998_rradc 10>,
+          <&pmi8998_rradc 3>,
+          <&pmi8998_rradc 4>;
+   io-channel-names = "charger_temp",
+        "charger_temp_max",
+        "usbin_i",
+        "usbin_v";
+
+   qcom,boost-threshold-ua = <100000>;
+   qcom,wipower-max-uw = <5000000>;
+   dpdm-supply = <&qusb_phy0>;
+
+   qcom,thermal-mitigation
+     = <3000000 1500000 1000000 500000>;
+   qcom,auto-recharge-soc;
+   qcom,suspend-input-on-debug-batt;
+
+   qcom,chgr@1000 {
+    reg = <0x1000 0x100>;
+    interrupts =
+     <0x2 0x10 0x0 1>,
+     <0x2 0x10 0x1 1>,
+     <0x2 0x10 0x2 1>,
+     <0x2 0x10 0x3 1>,
+     <0x2 0x10 0x4 1>;
+
+    interrupt-names = "chg-error",
+        "chg-state-change",
+        "step-chg-state-change",
+        "step-chg-soc-update-fail",
+        "step-chg-soc-update-request";
+   };
+
+   qcom,otg@1100 {
+    reg = <0x1100 0x100>;
+    interrupts = <0x2 0x11 0x0 (2 | 1)>,
+          <0x2 0x11 0x1 (2 | 1)>,
+          <0x2 0x11 0x2 (2 | 1)>,
+          <0x2 0x11 0x3 (2 | 1)>;
+
+    interrupt-names = "otg-fail",
+        "otg-overcurrent",
+        "otg-oc-dis-sw-sts",
+        "testmode-change-detect";
+   };
+
+   qcom,bat-if@1200 {
+    reg = <0x1200 0x100>;
+    interrupts =
+     <0x2 0x12 0x0 1>,
+     <0x2 0x12 0x1 (2 | 1)>,
+     <0x2 0x12 0x2 (2 | 1)>,
+     <0x2 0x12 0x3 (2 | 1)>,
+     <0x2 0x12 0x4 (2 | 1)>,
+     <0x2 0x12 0x5 (2 | 1)>;
+
+    interrupt-names = "bat-temp",
+        "bat-ocp",
+        "bat-ov",
+        "bat-low",
+        "bat-therm-or-id-missing",
+        "bat-terminal-missing";
+   };
+
+   qcom,usb-chgpth@1300 {
+    reg = <0x1300 0x100>;
+    interrupts =
+     <0x2 0x13 0x0 (2 | 1)>,
+     <0x2 0x13 0x1 (2 | 1)>,
+     <0x2 0x13 0x2 (2 | 1)>,
+     <0x2 0x13 0x3 (2 | 1)>,
+     <0x2 0x13 0x4 (2 | 1)>,
+     <0x2 0x13 0x5 1>,
+     <0x2 0x13 0x6 1>,
+     <0x2 0x13 0x7 1>;
+
+    interrupt-names = "usbin-collapse",
+        "usbin-lt-3p6v",
+        "usbin-uv",
+        "usbin-ov",
+        "usbin-plugin",
+        "usbin-src-change",
+        "usbin-icl-change",
+        "type-c-change";
+   };
+
+   qcom,dc-chgpth@1400 {
+    reg = <0x1400 0x100>;
+    interrupts =
+     <0x2 0x14 0x0 (2 | 1)>,
+     <0x2 0x14 0x1 (2 | 1)>,
+     <0x2 0x14 0x2 (2 | 1)>,
+     <0x2 0x14 0x3 (2 | 1)>,
+     <0x2 0x14 0x4 (2 | 1)>,
+     <0x2 0x14 0x5 (2 | 1)>,
+     <0x2 0x14 0x6 1>;
+
+    interrupt-names = "dcin-collapse",
+        "dcin-lt-3p6v",
+        "dcin-uv",
+        "dcin-ov",
+        "dcin-plugin",
+        "div2-en-dg",
+        "dcin-icl-change";
+   };
+
+   qcom,chgr-misc@1600 {
+    reg = <0x1600 0x100>;
+    interrupts =
+     <0x2 0x16 0x0 1>,
+     <0x2 0x16 0x1 1>,
+     <0x2 0x16 0x2 (2 | 1)>,
+     <0x2 0x16 0x3 (2 | 1)>,
+     <0x2 0x16 0x4 (2 | 1)>,
+     <0x2 0x16 0x5 (2 | 1)>,
+     <0x2 0x16 0x6 2>,
+     <0x2 0x16 0x7 (2 | 1)>;
+
+    interrupt-names = "wdog-snarl",
+        "wdog-bark",
+        "aicl-fail",
+        "aicl-done",
+        "high-duty-cycle",
+        "input-current-limiting",
+        "temperature-change",
+        "switcher-power-ok";
+   };
+  };
+
+  pmi8998_pdphy: qcom,usb-pdphy@1700 {
+   compatible = "qcom,qpnp-pdphy";
+   reg = <0x1700 0x100>;
+   vdd-pdphy-supply = <&pm8998_l24>;
+   vbus-supply = <&ext_5v_boost>;
+   vconn-supply = <&smb2_vconn>;
+   interrupts = <0x2 0x17 0x0 1>,
+         <0x2 0x17 0x1 1>,
+         <0x2 0x17 0x2 1>,
+         <0x2 0x17 0x3 1>,
+         <0x2 0x17 0x4 1>,
+         <0x2 0x17 0x5 1>,
+         <0x2 0x17 0x6 1>;
+
+   interrupt-names = "sig-tx",
+       "sig-rx",
+       "msg-tx",
+       "msg-rx",
+       "msg-tx-failed",
+       "msg-tx-discarded",
+       "msg-rx-discarded";
+
+   qcom,default-sink-caps = <5000 3000>,
+       <9000 3000>,
+       <12000 2250>;
+  };
+
+  bcl_sensor: bcl@4200 {
+   compatible = "qcom,msm-bcl-lmh";
+   reg = <0x4200 0xff>,
+    <0x4300 0xff>;
+   reg-names = "fg_user_adc",
+     "fg_lmh";
+   interrupts = <0x2 0x42 0x0 0>,
+     <0x2 0x42 0x1 0>,
+     <0x2 0x42 0x2 0>,
+     <0x2 0x42 0x3 0>,
+     <0x2 0x42 0x4 0>;
+   interrupt-names = "bcl-high-ibat",
+      "bcl-very-high-ibat",
+      "bcl-low-vbat",
+      "bcl-very-low-vbat",
+      "bcl-crit-low-vbat";
+   #thermal-sensor-cells = <1>;
+  };
+
+  pmi8998_rradc: rradc@4500 {
+   compatible = "qcom,rradc";
+   reg = <0x4500 0x100>;
+   #address-cells = <1>;
+   #size-cells = <0>;
+   #io-channel-cells = <1>;
+   qcom,pmic-revid = <&pmi8998_revid>;
+  };
+
+  pmi8998_fg: qpnp,fg {
+   compatible = "qcom,fg-gen3";
+   #address-cells = <1>;
+   #size-cells = <1>;
+   qcom,pmic-revid = <&pmi8998_revid>;
+   io-channels = <&pmi8998_rradc 0>;
+   io-channel-names = "rradc_batt_id";
+   qcom,rradc-base = <0x4500>;
+   qcom,fg-esr-timer-awake = <96 96>;
+   qcom,fg-esr-timer-asleep = <256 256>;
+   qcom,fg-esr-timer-charging = <0 96>;
+   qcom,cycle-counter-en;
+   qcom,hold-soc-while-full;
+   qcom,fg-auto-recharge-soc;
+   qcom,fg-recharge-soc-thr = <98>;
+   status = "okay";
+
+   qcom,fg-batt-soc@4000 {
+    status = "okay";
+    reg = <0x4000 0x100>;
+    interrupts = <0x2 0x40 0x0 (2 | 1)>,
+          <0x2 0x40 0x1 (2 | 1)>,
+          <0x2 0x40 0x2
+       1>,
+          <0x2 0x40 0x3
+       1>,
+          <0x2 0x40 0x4 (2 | 1)>,
+          <0x2 0x40 0x5
+       1>,
+          <0x2 0x40 0x6 (2 | 1)>,
+          <0x2 0x40 0x7 (2 | 1)>;
+    interrupt-names = "soc-update",
+        "soc-ready",
+        "bsoc-delta",
+        "msoc-delta",
+        "msoc-low",
+        "msoc-empty",
+        "msoc-high",
+        "msoc-full";
+   };
+
+   qcom,fg-batt-info@4100 {
+    status = "okay";
+    reg = <0x4100 0x100>;
+    interrupts = <0x2 0x41 0x0 (2 | 1)>,
+          <0x2 0x41 0x1 (2 | 1)>,
+          <0x2 0x41 0x2 (2 | 1)>,
+          <0x2 0x41 0x3 (2 | 1)>,
+          <0x2 0x41 0x6 (2 | 1)>;
+    interrupt-names = "vbatt-pred-delta",
+        "vbatt-low",
+        "esr-delta",
+        "batt-missing",
+        "batt-temp-delta";
+   };
+
+   qcom,fg-memif@4400 {
+    status = "okay";
+    reg = <0x4400 0x100>;
+    interrupts = <0x2 0x44 0x0 (2 | 1)>,
+          <0x2 0x44 0x1 (2 | 1)>,
+          <0x2 0x44 0x2
+       1>;
+    interrupt-names = "ima-rdy",
+        "mem-xcp",
+        "dma-grant";
+   };
+  };
+ };
+
+ pmi8998_lsid1: qcom,pmi8998@3 {
+  compatible ="qcom,spmi-pmic";
+  reg = <0x3 0>;
+  #address-cells = <2>;
+  #size-cells = <0>;
+
+  pmi8998_pwm_1: pwm@b100 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb100 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <1>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <0>;
+   #pwm-cells = <2>;
+   status = "disabled";
+  };
+
+  pmi8998_pwm_2: pwm@b200 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb200 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <2>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <1>;
+   #pwm-cells = <2>;
+   status = "disabled";
+  };
+
+  pmi8998_pwm_3: pwm@b300 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb300 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <3>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <2>;
+   #pwm-cells = <2>;
+  };
+
+  pmi8998_pwm_4: pwm@b400 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb400 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <4>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <3>;
+   #pwm-cells = <2>;
+  };
+
+  pmi8998_pwm_5: pwm@b500 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb500 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <5>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <4>;
+   #pwm-cells = <2>;
+  };
+
+  pmi8998_pwm_6: pwm@b600 {
+   compatible = "qcom,qpnp-pwm";
+   reg = <0xb600 0x100>,
+         <0xb042 0x7e>;
+   reg-names = "qpnp-lpg-channel-base",
+        "qpnp-lpg-lut-base";
+   qcom,lpg-lut-size = <0x7e>;
+   qcom,channel-id = <6>;
+   qcom,supported-sizes = <6>, <9>;
+   qcom,ramp-index = <5>;
+   #pwm-cells = <2>;
+   status = "disabled";
+  };
+
+  qcom,leds@d000 {
+   compatible = "qcom,leds-qpnp";
+   reg = <0xd000 0x100>;
+   label = "rgb";
+   status = "okay";
+
+   red_led: qcom,rgb_0 {
+    label = "rgb";
+    qcom,id = <3>;
+    qcom,mode = "pwm";
+    pwms = <&pmi8998_pwm_5 0 0>;
+    qcom,pwm-us = <1000>;
+    qcom,max-current = <12>;
+    qcom,default-state = "off";
+    linux,name = "red";
+   };
+
+   green_led: qcom,rgb_1 {
+    label = "rgb";
+    qcom,id = <4>;
+    qcom,mode = "pwm";
+    pwms = <&pmi8998_pwm_4 0 0>;
+    qcom,pwm-us = <1000>;
+    qcom,max-current = <12>;
+    qcom,default-state = "off";
+    linux,name = "green";
+   };
+
+   blue_led: qcom,rgb_2 {
+    label = "rgb";
+    qcom,id = <5>;
+    qcom,mode = "pwm";
+    pwms = <&pmi8998_pwm_3 0 0>;
+    qcom,pwm-us = <1000>;
+    qcom,max-current = <12>;
+    qcom,default-state = "off";
+    linux,name = "blue";
+   };
+  };
+
+  labibb: qpnp-labibb-regulator {
+   compatible = "qcom,qpnp-labibb-regulator";
+   #address-cells = <1>;
+   #size-cells = <1>;
+   qcom,pmic-revid = <&pmi8998_revid>;
+   status = "disabled";
+
+   ibb_regulator: qcom,ibb@dc00 {
+    reg = <0xdc00 0x100>;
+    reg-names = "ibb_reg";
+    regulator-name = "ibb_reg";
+
+    regulator-min-microvolt = <4600000>;
+    regulator-max-microvolt = <6000000>;
+
+    interrupts = <0x3 0xdc 0x2
+      1>;
+    interrupt-names = "ibb-sc-err";
+
+    qcom,qpnp-ibb-min-voltage = <1400000>;
+    qcom,qpnp-ibb-step-size = <100000>;
+    qcom,qpnp-ibb-slew-rate = <2000000>;
+    qcom,qpnp-ibb-use-default-voltage;
+    qcom,qpnp-ibb-init-voltage = <5500000>;
+    qcom,qpnp-ibb-init-amoled-voltage = <4000000>;
+    qcom,qpnp-ibb-init-lcd-voltage = <5500000>;
+
+    qcom,qpnp-ibb-soft-start = <1000>;
+
+    qcom,qpnp-ibb-lab-pwrup-delay = <8000>;
+    qcom,qpnp-ibb-lab-pwrdn-delay = <8000>;
+    qcom,qpnp-ibb-en-discharge;
+
+    qcom,qpnp-ibb-full-pull-down;
+    qcom,qpnp-ibb-pull-down-enable;
+    qcom,qpnp-ibb-switching-clock-frequency =
+         <1480>;
+    qcom,qpnp-ibb-limit-maximum-current = <1550>;
+    qcom,qpnp-ibb-debounce-cycle = <16>;
+    qcom,qpnp-ibb-limit-max-current-enable;
+    qcom,qpnp-ibb-ps-enable;
+   };
+
+   lab_regulator: qcom,lab@de00 {
+    reg = <0xde00 0x100>;
+    reg-names = "lab";
+    regulator-name = "lab_reg";
+
+    regulator-min-microvolt = <4600000>;
+    regulator-max-microvolt = <6000000>;
+
+    interrupts = <0x3 0xde 0x0
+      1>,
+          <0x3 0xde 0x1
+      1>;
+    interrupt-names = "lab-vreg-ok", "lab-sc-err";
+
+    qcom,qpnp-lab-min-voltage = <4600000>;
+    qcom,qpnp-lab-step-size = <100000>;
+    qcom,qpnp-lab-slew-rate = <5000>;
+    qcom,qpnp-lab-use-default-voltage;
+    qcom,qpnp-lab-init-voltage = <5500000>;
+    qcom,qpnp-lab-init-amoled-voltage = <4600000>;
+    qcom,qpnp-lab-init-lcd-voltage = <5500000>;
+
+    qcom,qpnp-lab-soft-start = <800>;
+
+    qcom,qpnp-lab-full-pull-down;
+    qcom,qpnp-lab-pull-down-enable;
+    qcom,qpnp-lab-switching-clock-frequency =
+         <1600>;
+    qcom,qpnp-lab-limit-maximum-current = <1600>;
+    qcom,qpnp-lab-limit-max-current-enable;
+    qcom,qpnp-lab-ps-threshold = <70>;
+    qcom,qpnp-lab-ps-enable;
+    qcom,qpnp-lab-nfet-size = <100>;
+    qcom,qpnp-lab-pfet-size = <100>;
+    qcom,qpnp-lab-max-precharge-time = <500>;
+   };
+  };
+
+  pmi8998_wled: qcom,leds@d800 {
+   compatible = "qcom,qpnp-wled";
+   reg = <0xd800 0x100>,
+         <0xd900 0x100>;
+   reg-names = "qpnp-wled-ctrl-base",
+        "qpnp-wled-sink-base";
+   interrupts = <0x3 0xd8 0x1 1>,
+         <0x3 0xd8 0x2 1>;
+   interrupt-names = "ovp-irq", "sc-irq";
+   linux,name = "wled";
+   linux,default-trigger = "bkl-trigger";
+   qcom,fdbk-output = "auto";
+   qcom,vref-uv = <127500>;
+   qcom,switch-freq-khz = <800>;
+   qcom,ovp-mv = <29600>;
+   qcom,ilim-ma = <970>;
+   qcom,boost-duty-ns = <26>;
+   qcom,mod-freq-khz = <9600>;
+   qcom,dim-mode = "hybrid";
+   qcom,hyb-thres = <625>;
+   qcom,sync-dly-us = <800>;
+   qcom,fs-curr-ua = <25000>;
+   qcom,cons-sync-write-delay-us = <1000>;
+   qcom,led-strings-list = [00 01 02 03];
+   qcom,en-ext-pfet-sc-pro;
+   qcom,pmic-revid = <&pmi8998_revid>;
+   qcom,loop-auto-gm-en;
+   qcom,auto-calibration-enable;
+   status = "disabled";
+  };
+
+  flash_led: qcom,leds@d300 {
+   compatible = "qcom,qpnp-flash-led-v2";
+   status = "okay";
+   reg = <0xd300 0x100>;
+   label = "flash";
+   interrupts = <0x3 0xd3 0x0 1>,
+         <0x3 0xd3 0x3 1>,
+         <0x3 0xd3 0x4 1>;
+   interrupt-names = "led-fault-irq",
+       "all-ramp-down-done-irq",
+       "all-ramp-up-done-irq";
+   qcom,hdrm-auto-mode;
+   qcom,short-circuit-det;
+   qcom,open-circuit-det;
+   qcom,vph-droop-det;
+   qcom,thermal-derate-en;
+   qcom,thermal-derate-current = <200 500 1000>;
+   qcom,isc-delay = <192>;
+   qcom,pmic-revid = <&pmi8998_revid>;
+
+   pmi8998_flash0: qcom,flash_0 {
+    label = "flash";
+    qcom,led-name = "led:flash_0";
+    qcom,max-current = <1500>;
+    qcom,default-led-trigger = "flash0_trigger";
+    qcom,id = <0>;
+    qcom,current-ma = <1000>;
+    qcom,duration-ms = <1280>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_flash1: qcom,flash_1 {
+    label = "flash";
+    qcom,led-name = "led:flash_1";
+    qcom,max-current = <1500>;
+    qcom,default-led-trigger = "flash1_trigger";
+    qcom,id = <1>;
+    qcom,current-ma = <1000>;
+    qcom,duration-ms = <1280>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_flash2: qcom,flash_2 {
+    label = "flash";
+    qcom,led-name = "led:flash_2";
+    qcom,max-current = <750>;
+    qcom,default-led-trigger = "flash2_trigger";
+    qcom,id = <2>;
+    qcom,current-ma = <500>;
+    qcom,duration-ms = <1280>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_torch0: qcom,torch_0 {
+    label = "torch";
+    qcom,led-name = "led:torch_0";
+    qcom,max-current = <500>;
+    qcom,default-led-trigger = "torch0_trigger";
+    qcom,id = <0>;
+    qcom,current-ma = <300>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_torch1: qcom,torch_1 {
+    label = "torch";
+    qcom,led-name = "led:torch_1";
+    qcom,max-current = <500>;
+    qcom,default-led-trigger = "torch1_trigger";
+    qcom,id = <1>;
+    qcom,current-ma = <300>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_torch2: qcom,torch_2 {
+    label = "torch";
+    qcom,led-name = "led:torch_2";
+    qcom,max-current = <500>;
+    qcom,default-led-trigger = "torch2_trigger";
+    qcom,id = <2>;
+    qcom,current-ma = <300>;
+    qcom,ires-ua = <12500>;
+    qcom,hdrm-voltage-mv = <325>;
+    qcom,hdrm-vol-hi-lo-win-mv = <100>;
+   };
+
+   pmi8998_switch0: qcom,led_switch_0 {
+    label = "switch";
+    qcom,led-name = "led:switch_0";
+    qcom,led-mask = <3>;
+    qcom,default-led-trigger = "switch0_trigger";
+   };
+
+   pmi8998_switch1: qcom,led_switch_1 {
+    label = "switch";
+    qcom,led-name = "led:switch_1";
+    qcom,led-mask = <4>;
+    qcom,default-led-trigger = "switch1_trigger";
+   };
+
+   pmi8998_switch2: qcom,led_switch_2 {
+    label = "switch";
+    qcom,led-name = "led:switch_2";
+    qcom,led-mask = <4>;
+    qcom,default-led-trigger = "switch2_trigger";
+   };
+
+  };
+
+  pmi8998_haptics: qcom,haptics@c000 {
+   compatible = "qcom,qpnp-haptics";
+   reg = <0xc000 0x100>;
+   interrupts = <0x3 0xc0 0x0 (2 | 1)>,
+         <0x3 0xc0 0x1 (2 | 1)>;
+   interrupt-names = "hap-sc-irq", "hap-play-irq";
+   qcom,pmic-revid = <&pmi8998_revid>;
+   qcom,pmic-misc = <&pmi8998_misc>;
+   qcom,misc-clk-trim-error-reg = <0xf3>;
+   qcom,actuator-type = <0>;
+   qcom,play-mode = "direct";
+   qcom,vmax-mv = <3200>;
+   qcom,ilim-ma = <800>;
+   qcom,sc-dbc-cycles = <8>;
+   qcom,wave-play-rate-us = <6667>;
+   qcom,en-brake;
+   qcom,lra-high-z = "opt1";
+   qcom,lra-auto-res-mode = "qwd";
+   qcom,lra-res-cal-period = <4>;
+   status = "disabled";
+  };
+ };
+};
+
+&thermal_zones {
+ ibat-high {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-governor = "step_wise";
+  thermal-sensors = <&bcl_sensor 0>;
+
+  trips {
+   ibat_high: low-ibat {
+    temperature = <5000>;
+    hysteresis = <200>;
+    type = "passive";
+   };
+  };
+ };
+ ibat-vhigh {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-governor = "step_wise";
+  thermal-sensors = <&bcl_sensor 1>;
+
+  trips {
+   ibat_vhigh: ibat_vhigh {
+    temperature = <6000>;
+    hysteresis = <100>;
+    type = "passive";
+   };
+  };
+ };
+ vbat {
+  polling-delay-passive = <100>;
+  polling-delay = <0>;
+  thermal-governor = "low_limits_cap";
+  thermal-sensors = <&bcl_sensor 2>;
+  tracks-low;
+
+  trips {
+   low_vbat: low-vbat {
+    temperature = <3200>;
+    hysteresis = <100>;
+    type = "passive";
+   };
+  };
+  cooling-maps {
+   vbat_cpu4 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU4 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   vbat_cpu5 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU5 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   vbat_map6 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU6 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   vbat_map7 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU7 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+  };
+ };
+ vbat_low {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-governor = "low_limits_cap";
+  thermal-sensors = <&bcl_sensor 3>;
+  tracks-low;
+
+  trips {
+   low-vbat {
+    temperature = <2800>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+  };
+ };
+ vbat_too_low {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-governor = "low_limits_cap";
+  thermal-sensors = <&bcl_sensor 4>;
+  tracks-low;
+
+  trips {
+   low-vbat {
+    temperature = <2600>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+  };
+ };
+ soc {
+  polling-delay-passive = <100>;
+  polling-delay = <0>;
+  thermal-governor = "low_limits_cap";
+  thermal-sensors = <&bcl_sensor 5>;
+  tracks-low;
+
+  trips {
+   low_soc: low-soc {
+    temperature = <10>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+  };
+  cooling-maps {
+   soc_cpu4 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU4 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   soc_cpu5 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU5 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   soc_map6 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU6 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+   soc_map7 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU7 ((~0) - 1)
+      ((~0) - 1)>;
+   };
+  };
+ };
+
+ pmi8998_tz {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pmi8998_tz>;
+  disable-thermal-zone;
+
+  trips {
+   pmi8998_trip0: pmi8998-trip0 {
+    temperature = <105000>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+    pmi8998_trip1: pmi8998-trip1 {
+    temperature = <125000>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+    pmi8998_trip2: pmi8998-trip2 {
+    temperature = <145000>;
+    hysteresis = <0>;
+    type = "passive";
+   };
+  };
+ };
+};
+# 16 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pmic-overlay.dtsi" 2
+
+&vendor {
+ ext_5v_boost: ext_5v_boost {
+  status = "disabled";
+  compatible = "regulator-fixed";
+  regulator-name = "ext_5v_boost";
+  gpio = <&pmi8998_gpios 10 0>;
+  enable-active-high;
+
+  regulator-enable-ramp-delay = <1600>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&usb2_ext_5v_boost_default>;
+ };
+};
+
+&pmi8998_charger {
+ smb2_vconn: qcom,smb2-vconn {
+  regulator-name = "smb2-vconn";
+ };
+ smb2_vbus: qcom,smb2-vbus {
+  regulator-name = "smb2-vbus";
+ };
+};
+
+&pmi8998_qnovo {
+ pinctrl-names = "default";
+ pinctrl-0 = <&qnovo_fet_ctrl_default>;
+};
+
+&usb0 {
+ extcon = <&pmi8998_pdphy>, <&pmi8998_pdphy>, <&eud>;
+};
+# 27 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pinctrl-overlay.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/sdm845-pinctrl-overlay.dtsi"
+&pmi8998_gpios {
+ usb2_vbus_boost {
+  usb2_vbus_boost_default: usb2_vbus_boost_default {
+   pins = "gpio2";
+   function = "normal";
+   output-low;
+   power-source = <0>;
+  };
+ };
+
+ qnovo_fet_ctrl {
+  qnovo_fet_ctrl_default: qnovo_fet_ctrl_default {
+   pins = "gpio6";
+   function = "func1";
+   output-low;
+   input-disable;
+   bias-disable;
+   power-source = <0>;
+   qcom,drive-strength = <1>;
+  };
+ };
+
+ usb2_vbus_det {
+  usb2_vbus_det_default: usb2_vbus_det_default {
+   pins = "gpio8";
+   function = "normal";
+   input-enable;
+   bias-pull-down;
+   power-source = <1>;
+  };
+ };
+
+ usb2_id_det {
+  usb2_id_det_default: usb2_id_det_default {
+   pins = "gpio9";
+   function = "normal";
+   input-enable;
+   bias-pull-up;
+   power-source = <0>;
+  };
+ };
+
+ usb2_ext_5v_boost {
+  usb2_ext_5v_boost_default: usb2_ext_5v_boost_default {
+   pins = "gpio10";
+   function = "normal";
+   output-low;
+   power-source = <0>;
+  };
+ };
+};
+# 28 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-camera-sensor.dtsi" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-camera-sensor.dtsi"
+&tlmm {
+ cam_sensor_rear_active: cam_sensor_rear_active {
+
+  mux {
+   pins = "gpio80","gpio16";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio80","gpio16";
+   bias-disable;
+   drive-strength = <2>;
+  };
+ };
+
+ cam_sensor_rear_suspend: cam_sensor_rear_suspend {
+
+  mux {
+   pins = "gpio80","gpio16";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio80","gpio16";
+   bias-pull-down;
+   drive-strength = <2>;
+  };
+ };
+
+ cam_sensor_front_active: cam_sensor_front_active {
+
+  mux {
+   pins = "gpio21", "gpio8";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio21", "gpio8";
+   bias-disable;
+   drive-strength = <2>;
+  };
+ };
+
+ cam_sensor_front_suspend: cam_sensor_front_suspend {
+
+  mux {
+   pins = "gpio21", "gpio8";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio21", "gpio8";
+   bias-pull-down;
+   drive-strength = <2>;
+  };
+ };
+
+ cam_sensor_front2_active: cam_sensor_front2_active {
+
+  mux {
+   pins = "gpio9", "gpio14";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio9", "gpio14";
+   bias-disable;
+   drive-strength = <2>;
+  };
+ };
+
+ cam_sensor_front2_suspend: cam_sensor_front2_suspend {
+
+  mux {
+   pins = "gpio9", "gpio14";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio9", "gpio14";
+   bias-pull-down;
+   drive-strength = <2>;
+  };
+ };
+};
+
+&cci0_suspend {
+ mux {
+
+  pins = "gpio17","gpio18";
+  function = "cci_i2c";
+ };
+ config {
+  pins = "gpio17","gpio18";
+
+  bias-disable;
+ };
+};
+
+&soc {
+ led_flash_rear: qcom,camera-flash@0 {
+  cell-index = <0>;
+  reg = <0x00 0x00>;
+  compatible = "qcom,camera-flash";
+  flash-source = <&pmi8998_flash0 &pmi8998_flash1>;
+  torch-source = <&pmi8998_torch0 &pmi8998_torch1>;
+  switch-source = <&pmi8998_switch0>;
+  status = "ok";
+ };
+
+ led_flash_front: qcom,camera-flash@1 {
+  cell-index = <1>;
+  reg = <0x01 0x00>;
+  compatible = "qcom,camera-flash";
+  flash-source = <&pmi8998_flash2>;
+  torch-source = <&pmi8998_torch2>;
+  switch-source = <&pmi8998_switch1>;
+  status = "ok";
+ };
+
+ actuator_regulator: gpio-regulator@0 {
+  compatible = "regulator-fixed";
+  reg = <0x00 0x00>;
+  regulator-name = "actuator_regulator";
+  regulator-min-microvolt = <2864000>;
+  regulator-max-microvolt = <2864000>;
+  regulator-enable-ramp-delay = <100>;
+  enable-active-high;
+  vin-supply = <&pm8998_l22>;
+ };
+};
+
+&cam_cci {
+ actuator_rear: qcom,actuator@0 {
+  cell-index = <0>;
+  reg = <0x0>;
+  compatible = "qcom,actuator";
+  cci-master = <0>;
+  cam_vaf-supply = <&actuator_regulator>;
+  regulator-names = "cam_vaf";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <2864000>;
+  rgltr-max-voltage = <2864000>;
+  rgltr-load-current = <0>;
+ };
+
+ actuator_front: qcom,actuator@1 {
+  cell-index = <1>;
+  reg = <0x1>;
+  compatible = "qcom,actuator";
+  cci-master = <1>;
+  cam_vaf-supply = <&actuator_regulator>;
+  regulator-names = "cam_vaf";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <2864000>;
+  rgltr-max-voltage = <2864000>;
+  rgltr-load-current = <0>;
+ };
+
+ ois_rear: qcom,ois@0 {
+  cell-index = <0>;
+  reg = <0x0>;
+  compatible = "qcom,ois";
+  cci-master = <0>;
+  cam_vaf-supply = <&actuator_regulator>;
+  regulator-names = "cam_vaf";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <2864000>;
+  rgltr-max-voltage = <2864000>;
+  rgltr-load-current = <0>;
+ };
+
+ eeprom_front: qcom,eeprom@0 {
+  cell-index = <0>;
+  compatible = "qcom,eeprom";
+  reg = <0x0>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  regulator-names = "cam_vio", "cam_vana", "cam_vdig",
+   "cam_clk";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <0 3312000 1352000 0>;
+  rgltr-max-voltage = <0 3600000 1352000 0>;
+  rgltr-load-current = <0 80000 105000 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk2_active
+    &cam_sensor_front_active>;
+  pinctrl-1 = <&cam_sensor_mclk2_suspend
+    &cam_sensor_front_suspend>;
+  gpios = <&tlmm 15 0>,
+   <&tlmm 21 0>,
+   <&tlmm 8 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK1",
+     "CAM_RESET1",
+     "CAM_VANA1";
+  sensor-position = <1>;
+  sensor-mode = <0>;
+  cci-master = <1>;
+  status = "ok";
+  clocks = <&clock_camcc 70>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+
+ eeprom_rear: qcom,eeprom@1 {
+  cell-index = <1>;
+  compatible = "qcom,eeprom";
+  reg = <0x1>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  regulator-names = "cam_vdig", "cam_vio", "cam_vana",
+   "cam_clk";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <1352000 0 3312000 0>;
+  rgltr-max-voltage = <1352000 0 3600000 0>;
+  rgltr-load-current = <105000 0 80000 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk0_active
+    &cam_sensor_rear_active>;
+  pinctrl-1 = <&cam_sensor_mclk0_suspend
+    &cam_sensor_rear_suspend>;
+  gpios = <&tlmm 13 0>,
+   <&tlmm 80 0>,
+   <&tlmm 16 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK0",
+     "CAM_RESET0",
+     "CAM_VANA0";
+  sensor-position = <0>;
+  sensor-mode = <0>;
+  cci-master = <0>;
+  status = "ok";
+  clocks = <&clock_camcc 66>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+
+ eeprom_front_aux: qcom,eeprom@2 {
+  cell-index = <2>;
+  compatible = "qcom,eeprom";
+  reg = <0x2>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  regulator-names = "cam_vio", "cam_vana", "cam_vdig",
+   "cam_clk";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <0 3312000 1352000 0>;
+  rgltr-max-voltage = <0 3600000 1352000 0>;
+  rgltr-load-current = <0 80000 105000 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk2_active
+    &cam_sensor_front2_active>;
+  pinctrl-1 = <&cam_sensor_mclk2_suspend
+    &cam_sensor_front2_suspend>;
+  gpios = <&tlmm 15 0>,
+   <&tlmm 9 0>,
+   <&tlmm 14 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK2",
+     "CAM_RESET2",
+     "CAM_VANA2";
+  sensor-position = <1>;
+  sensor-mode = <0>;
+  cci-master = <1>;
+  status = "ok";
+  clocks = <&clock_camcc 70>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+
+ sensor_rear: qcom,cam-sensor@0 {
+  cell-index = <0>;
+  compatible = "qcom,cam-sensor";
+  reg = <0x0>;
+  csiphy-sd-index = <0>;
+  sensor-position-roll = <90>;
+  sensor-position-pitch = <0>;
+  sensor-position-yaw = <180>;
+  led-flash-src = <&led_flash_rear>;
+  actuator-src = <&actuator_rear>;
+  eeprom-src = <&eeprom_rear>;
+  ois-src = <&ois_rear>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  regulator-names = "cam_vdig", "cam_vio", "cam_vana",
+   "cam_clk";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <1352000 0 3312000 0>;
+  rgltr-max-voltage = <1352000 0 3600000 0>;
+  rgltr-load-current = <105000 0 80000 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk0_active
+    &cam_sensor_rear_active>;
+  pinctrl-1 = <&cam_sensor_mclk0_suspend
+    &cam_sensor_rear_suspend>;
+  gpios = <&tlmm 13 0>,
+   <&tlmm 80 0>,
+   <&tlmm 16 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK0",
+     "CAM_RESET0",
+     "CAM_VANA0";
+  sensor-mode = <0>;
+  cci-master = <0>;
+  status = "ok";
+  clocks = <&clock_camcc 66>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+
+ sensor_front: qcom,cam-sensor@1 {
+  cell-index = <1>;
+  compatible = "qcom,cam-sensor";
+  reg = <0x1>;
+  csiphy-sd-index = <2>;
+  sensor-position-roll = <90>;
+  sensor-position-pitch = <0>;
+  sensor-position-yaw = <0>;
+  actuator-src = <&actuator_front>;
+  led-flash-src = <&led_flash_front>;
+  eeprom-src = <&eeprom_front>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  cam_vaf-supply = <&actuator_regulator>;
+  regulator-names = "cam_vio", "cam_vana", "cam_vdig",
+   "cam_clk", "cam_vaf";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <0 3312000 1352000 0 2864000>;
+  rgltr-max-voltage = <0 3600000 1352000 0 2864000>;
+  rgltr-load-current = <0 80000 105000 0 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk2_active
+    &cam_sensor_front_active>;
+  pinctrl-1 = <&cam_sensor_mclk2_suspend
+    &cam_sensor_front_suspend>;
+  gpios = <&tlmm 15 0>,
+   <&tlmm 21 0>,
+   <&tlmm 8 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK1",
+     "CAM_RESET1",
+     "CAM_VANA1";
+  sensor-mode = <0>;
+  cci-master = <1>;
+  status = "ok";
+  clocks = <&clock_camcc 70>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+
+ sensor_front_aux: qcom,cam-sensor@2 {
+  cell-index = <2>;
+  compatible = "qcom,cam-sensor";
+  reg = <0x02>;
+  csiphy-sd-index = <1>;
+  sensor-position-roll = <90>;
+  sensor-position-pitch = <0>;
+  sensor-position-yaw = <0>;
+  eeprom-src = <&eeprom_front_aux>;
+  led-flash-src = <&led_flash_front>;
+  cam_vio-supply = <&pm8998_lvs1>;
+  cam_vana-supply = <&pmi8998_bob>;
+  cam_vdig-supply = <&pm8998_s3>;
+  cam_clk-supply = <&titan_top_gdsc>;
+  regulator-names = "cam_vio", "cam_vana", "cam_vdig",
+   "cam_clk";
+  rgltr-cntrl-support;
+  rgltr-min-voltage = <0 3312000 1352000 0>;
+  rgltr-max-voltage = <0 3600000 1352000 0>;
+  rgltr-load-current = <0 80000 105000 0>;
+  gpio-no-mux = <0>;
+  pinctrl-names = "cam_default", "cam_suspend";
+  pinctrl-0 = <&cam_sensor_mclk2_active
+     &cam_sensor_front2_active>;
+  pinctrl-1 = <&cam_sensor_mclk2_suspend
+     &cam_sensor_front2_suspend>;
+  gpios = <&tlmm 15 0>,
+   <&tlmm 9 0>,
+   <&tlmm 14 0>;
+  gpio-reset = <1>;
+  gpio-vana = <2>;
+  gpio-req-tbl-num = <0 1 2>;
+  gpio-req-tbl-flags = <1 0 0>;
+  gpio-req-tbl-label = "CAMIF_MCLK2",
+     "CAM_RESET2",
+     "CAM_VANA2";
+  sensor-mode = <0>;
+  cci-master = <1>;
+  status = "ok";
+  clocks = <&clock_camcc 70>;
+  clock-names = "cam_clk";
+  clock-cntl-level = "turbo";
+  clock-rates = <24000000>;
+ };
+};
+# 31 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi"
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/dsi-panel-sim-video.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/dsi-panel-sim-video.dtsi"
+&mdss_mdp {
+ dsi_sim_vid: qcom,mdss_dsi_sim_video {
+  qcom,mdss-dsi-panel-name = "Simulator video mode dsi panel";
+  qcom,mdss-dsi-panel-type = "dsi_video_mode";
+  qcom,mdss-dsi-virtual-channel-id = <0>;
+  qcom,mdss-dsi-stream = <0>;
+  qcom,mdss-dsi-bpp = <24>;
+  qcom,mdss-dsi-underflow-color = <0xff>;
+  qcom,mdss-dsi-border-color = <0>;
+  qcom,mdss-dsi-panel-hdr-enabled;
+  qcom,mdss-dsi-panel-hdr-color-primaries = <14500 15500 32000
+   17000 15500 30000 8000 3000>;
+  qcom,mdss-dsi-panel-peak-brightness = <4200000>;
+  qcom,mdss-dsi-panel-blackness-level = <3230>;
+  qcom,mdss-dsi-traffic-mode = "non_burst_sync_event";
+  qcom,mdss-dsi-bllp-eof-power-mode;
+  qcom,mdss-dsi-bllp-power-mode;
+  qcom,mdss-dsi-lane-0-state;
+  qcom,mdss-dsi-lane-1-state;
+  qcom,mdss-dsi-lane-2-state;
+  qcom,mdss-dsi-lane-3-state;
+  qcom,mdss-dsi-t-clk-post = <0x04>;
+  qcom,mdss-dsi-t-clk-pre = <0x1b>;
+  qcom,mdss-dsi-dma-trigger = "trigger_sw";
+  qcom,mdss-dsi-mdp-trigger = "none";
+  qcom,mdss-dsi-reset-sequence = <1 0>, <0 0>, <1 0>;
+  qcom,panel-ack-disabled;
+
+  qcom,mdss-dsi-display-timings {
+   timing@0{
+    qcom,mdss-dsi-panel-width = <640>;
+    qcom,mdss-dsi-panel-height = <480>;
+    qcom,mdss-dsi-h-front-porch = <8>;
+    qcom,mdss-dsi-h-back-porch = <8>;
+    qcom,mdss-dsi-h-pulse-width = <8>;
+    qcom,mdss-dsi-h-sync-skew = <0>;
+    qcom,mdss-dsi-v-back-porch = <6>;
+    qcom,mdss-dsi-v-front-porch = <6>;
+    qcom,mdss-dsi-v-pulse-width = <2>;
+    qcom,mdss-dsi-h-left-border = <0>;
+    qcom,mdss-dsi-h-right-border = <0>;
+    qcom,mdss-dsi-v-top-border = <0>;
+    qcom,mdss-dsi-v-bottom-border = <0>;
+    qcom,mdss-dsi-panel-framerate = <60>;
+    qcom,mdss-dsi-panel-timings =
+     [00 00 00 00 00 00 00 00 00 00 00 00];
+    qcom,mdss-dsi-on-command =
+     [32 01 00 00 00 00 02 00 00];
+    qcom,mdss-dsi-off-command =
+     [22 01 00 00 00 00 02 00 00];
+    qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-off-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-h-sync-pulse = <0>;
+   };
+  };
+ };
+};
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-sw43402-dsc-qhd-cmd.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-sw43402-dsc-qhd-cmd.dtsi"
+&mdss_mdp {
+ dsi_sw43402_dsc_qhd_cmd: qcom,mdss_dsi_sw43402_dsc_qhd_cmd {
+  qcom,mdss-dsi-panel-name = "SW43402 cmd mode dsc dsi panel";
+  qcom,mdss-dsi-panel-type = "dsi_cmd_mode";
+  qcom,mdss-dsi-virtual-channel-id = <0>;
+  qcom,mdss-dsi-stream = <0>;
+  qcom,mdss-dsi-bpp = <24>;
+  qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+  qcom,mdss-dsi-underflow-color = <0xff>;
+  qcom,mdss-dsi-border-color = <0>;
+  qcom,mdss-dsi-traffic-mode = "burst_mode";
+  qcom,mdss-dsi-lane-map = "lane_map_0123";
+  qcom,mdss-dsi-bllp-eof-power-mode;
+  qcom,mdss-dsi-bllp-power-mode;
+
+
+  qcom,mdss-dsi-lane-0-state;
+  qcom,mdss-dsi-lane-1-state;
+  qcom,mdss-dsi-lane-2-state;
+  qcom,mdss-dsi-lane-3-state;
+  qcom,mdss-dsi-reset-sequence = <1 10>, <0 10>, <1 10>;
+  qcom,mdss-dsi-dma-trigger = "trigger_sw";
+  qcom,mdss-dsi-mdp-trigger = "none";
+  qcom,mdss-dsi-te-pin-select = <1>;
+  qcom,mdss-dsi-wr-mem-start = <0x2c>;
+  qcom,mdss-dsi-wr-mem-continue = <0x3c>;
+  qcom,mdss-dsi-te-dcs-command = <1>;
+  qcom,mdss-dsi-te-check-enable;
+  qcom,mdss-dsi-te-using-te-pin;
+
+  qcom,mdss-dsi-tx-eot-append;
+  qcom,mdss-dsi-force-clock-lane-hs = <1>;
+
+
+
+
+  qcom,mdss-dsi-lp-mode-on = [15 01 00 00 00 00 02 53 08];
+  qcom,mdss-dsi-lp-mode-off = [15 01 00 00 00 00 02 53 00];
+  qcom,mdss-dsi-lp-change-state = "dsi_hs_mode";
+  qcom,mode-control-dsi-state = "dsi_lp_mode";
+
+  qcom,alpm-off-command = [
+   05 01 00 00 00 00 01 38
+  ];
+  qcom,alpm-low-command = [
+   05 01 00 00 00 00 01 39
+   15 01 00 00 00 00 02 51 40
+  ];
+  qcom,alpm-high-command = [
+   05 01 00 00 00 00 01 39
+   15 01 00 00 00 00 02 51 80
+  ];
+  qcom,mdss-pan-physical-width-dimension = <68>;
+  qcom,mdss-pan-physical-height-dimension = <136>;
+
+  qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+  qcom,mdss-dsi-bl-min-level = <23>;
+  qcom,mdss-dsi-bl-max-level = <223>;
+
+  qcom,mdss-dsi-display-timings {
+   timing@0 {
+    qcom,mdss-dsi-panel-framerate = <60>;
+    qcom,mdss-dsi-panel-width = <1440>;
+    qcom,mdss-dsi-panel-height = <2880>;
+    qcom,mdss-dsi-h-front-porch = <20>;
+    qcom,mdss-dsi-h-back-porch = <20>;
+    qcom,mdss-dsi-h-pulse-width = <32>;
+    qcom,mdss-dsi-h-sync-skew = <0>;
+    qcom,mdss-dsi-v-back-porch = <20>;
+    qcom,mdss-dsi-v-front-porch = <20>;
+    qcom,mdss-dsi-v-pulse-width = <4>;
+    qcom,mdss-dsi-h-left-border = <0>;
+    qcom,mdss-dsi-h-right-border = <0>;
+    qcom,mdss-dsi-v-top-border = <0>;
+    qcom,mdss-dsi-v-bottom-border = <0>;
+    qcom,mdss-dsi-on-command = [
+     39 01 00 00 00 00 03 B0
+     20 43
+     39 01 00 00 00 00 03 DF
+     08 00
+     39 01 00 00 00 00 03 B0
+     A5 00
+     05 01 00 00 00 00 01 35
+     05 01 00 00 3C 00 01 11
+     15 01 00 00 00 00 02 53
+     00
+     15 01 00 00 00 00 02 55
+     0C
+     39 01 00 00 00 00 03 FB
+     03 77
+     39 01 00 00 00 00 06 ED
+     13 00 07 00 00
+     39 01 00 00 00 00 13 C9
+     00 00 00 24 33 AE
+     FF FF FF 00 1F 3F
+     5E 7D 91 AF CF FF
+     39 01 00 00 14 00 0F E2
+     20 0D 08 A8 0A AA
+     04 A4 83 83 83 5C
+     5C 5C
+     05 01 00 00 00 00 01 29
+    ];
+    qcom,mdss-dsi-off-command = [
+     39 01 00 00 00 00 05 E8
+     08 90 18 05
+     05 01 00 00 00 00 01 28
+     05 01 00 00 64 00 01 10
+    ];
+    qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-off-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-h-sync-pulse = <0>;
+    qcom,compression-mode = "dsc";
+    qcom,mdss-dsc-slice-height = <16>;
+    qcom,mdss-dsc-slice-width = <720>;
+    qcom,mdss-dsc-slice-per-pkt = <1>;
+    qcom,mdss-dsc-bit-per-component = <8>;
+    qcom,mdss-dsc-bit-per-pixel = <8>;
+    qcom,mdss-dsc-block-prediction-enable;
+
+
+
+    qcom,display-topology = <2 2 1>;
+    qcom,default-topology-index = <0>;
+   };
+  };
+
+ };
+};
+# 15 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-sw43408-dsc-fhd-cmd.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-sw43408-dsc-fhd-cmd.dtsi"
+&mdss_mdp {
+ dsi_sw43408_dsc_fhd_cmd: qcom,mdss_dsi_sw43408_dsc_fhd_cmd {
+  compatible = "google,dsi_binned_lp";
+
+  qcom,mdss-dsi-panel-name = "sw43408 cmd mode dsc dsi panel";
+  google,mdss-dsi-panel-vendor = "LG";
+  google,mdss-dsi-panel-sn-location = <0xA9 0 9>;
+  qcom,mdss-dsi-panel-type = "dsi_cmd_mode";
+  qcom,mdss-dsi-virtual-channel-id = <0>;
+  qcom,mdss-dsi-stream = <0>;
+  qcom,mdss-dsi-bpp = <24>;
+  qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+  qcom,mdss-dsi-underflow-color = <0xff>;
+  qcom,mdss-dsi-border-color = <0>;
+  qcom,mdss-dsi-traffic-mode = "burst_mode";
+  qcom,mdss-dsi-lane-map = "lane_map_0123";
+
+
+  qcom,mdss-dsi-lane-0-state;
+  qcom,mdss-dsi-lane-1-state;
+  qcom,mdss-dsi-lane-2-state;
+  qcom,mdss-dsi-lane-3-state;
+  qcom,mdss-dsi-reset-sequence = <1 9>, <0 1>, <1 10>;
+  qcom,mdss-dsi-dma-trigger = "trigger_sw";
+  qcom,mdss-dsi-mdp-trigger = "none";
+  qcom,mdss-dsi-te-pin-select = <1>;
+  qcom,mdss-dsi-wr-mem-start = <0x2c>;
+  qcom,mdss-dsi-wr-mem-continue = <0x3c>;
+  qcom,mdss-dsi-te-dcs-command = <1>;
+  qcom,mdss-dsi-te-check-enable;
+  qcom,mdss-dsi-te-using-te-pin;
+  qcom,mdss-dsi-tx-eot-append;
+  qcom,mdss-dsi-force-clock-lane-hs = <1>;
+
+  qcom,mdss-pan-physical-width-dimension = <62>;
+  qcom,mdss-pan-physical-height-dimension = <124>;
+
+  qcom,mdss-dsi-hs-pps;
+  qcom,mdss-dsi-init-delay-us = <5000>;
+  qcom,mdss-dsi-lp11-init;
+
+  qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+  qcom,mdss-dsi-bl-min-level = <0x8>;
+  qcom,mdss-dsi-bl-max-level = <0x384>;
+  qcom,mdss-dsi-panel-hdr-enabled;
+  qcom,mdss-dsi-panel-hdr-color-primaries = <14500 15500 32000
+   17000 15500 30000 8000 3000>;
+  qcom,mdss-dsi-panel-peak-brightness = <6200000>;
+  qcom,mdss-dsi-panel-blackness-level = <42>;
+  google,mdss-dsi-lp-brightness-compensation = <0>;
+
+  qcom,mdss-dsi-display-timings {
+   timing@0 {
+    qcom,mdss-dsi-panel-framerate = <60>;
+    qcom,mdss-dsi-panel-width = <1080>;
+    qcom,mdss-dsi-panel-height = <2160>;
+    qcom,mdss-dsi-h-front-porch = <20>;
+    qcom,mdss-dsi-h-back-porch = <20>;
+    qcom,mdss-dsi-h-pulse-width = <32>;
+    qcom,mdss-dsi-h-sync-skew = <0>;
+    qcom,mdss-dsi-v-back-porch = <20>;
+    qcom,mdss-dsi-v-front-porch = <20>;
+    qcom,mdss-dsi-v-pulse-width = <4>;
+    qcom,mdss-dsi-h-left-border = <0>;
+    qcom,mdss-dsi-h-right-border = <0>;
+    qcom,mdss-dsi-v-top-border = <0>;
+    qcom,mdss-dsi-v-bottom-border = <0>;
+    qcom,mdss-dsi-init-delay-us = <10000>;
+    qcom,mdss-dsi-on-command = [
+     15 01 00 00 00 00 02 26 02
+     15 01 00 00 00 00 02 35 00
+     39 01 00 00 00 00 03 53 0C 30
+     39 01 00 00 00 00 07 55 00 70 DF 00 70 DF
+     39 01 00 00 00 00 04 F7 01 49 0C
+     05 01 00 00 32 00 01 11
+     07 01 00 00 00 00 01 11
+     15 01 00 00 00 00 02 B0 AC
+     39 01 00 00 00 00 08 E5
+      00 3A 00 3A 00 0E 10
+     39 01 00 00 55 00 2A B5
+      75 60 2D 5D 80 00 0A 0B
+      00 05 0B 00 80 0D 0E 40
+      00 0C 00 16 00 B8 00 80
+      0D 0E 40 00 0C 00 16 00
+      B8 00 81 00 03 03 03 01
+      01
+     39 01 00 00 00 00 13 CD
+      00 00 00 19 19 19 19 19
+      19 19 19 19 19 19 19 19
+      16 16
+     39 01 00 00 00 00 06 CB 80 5C 07 03 28
+     39 01 00 00 00 00 04 C0 02 02 0F
+     39 01 00 00 00 00 07 55 04 61 DB 04 70 DB
+     15 01 00 00 00 00 02 B0 CA
+     05 01 00 00 32 00 01 29
+    ];
+    qcom,mdss-dsi-off-command = [
+     05 01 00 00 00 00 01 28
+     05 01 00 00 64 00 01 10
+    ];
+
+    qcom,mdss-dsi-lp1-command = [
+     05 01 00 00 00 00 01 22
+     39 01 00 00 00 00 05 30 00 00 08 6F
+     39 01 00 00 00 00 05 31 00 00 04 37
+     15 01 00 00 00 00 02 B0 AC
+     39 01 00 00 00 00 07 55 04 61 DB 04 78 DB
+     39 01 00 00 00 00 0D B4 2A 40 25 22 41 41 41 0A 10 50 11 03
+     39 01 00 00 3C 00 06 CB 80 5C 07 09 28
+    ];
+
+    qcom,mdss-dsi-nolp-command = [
+     05 01 00 00 00 00 01 22
+     15 01 00 00 00 00 02 B0 AC
+     39 01 00 00 00 00 0D B4 2A 02 25 22 41 41 41 0A 10 50 11 00
+     39 01 00 00 00 00 06 CB 80 5C 07 03 28
+     39 01 00 00 00 00 03 51 00 00
+     05 01 00 00 3C 00 01 13
+    ];
+
+    qcom,mdss-dsi-vr-command = [
+     05 01 00 00 64 00 01 28
+
+     15 01 00 00 00 00 02 B0 AC
+
+     39 01 00 00 00 00 08 E5
+      00 3E 00 3E 00 0E 30
+     39 01 00 00 00 00 2A B5
+      75 60 2D 5D 80 00 0A 0B
+      00 05 0B 00 80 0D 0E 40
+      00 0C 00 16 00 B8 00 80
+      0D 0E 40 00 0C 00 16 00
+      B8 00 81 00 03 1F 1F 02
+      02
+
+     15 01 00 00 00 00 02 B0 CA
+
+     39 01 00 00 00 00 07 55 04 70 DB 04 70 DB
+
+     39 01 00 00 00 00 03 51 01 A0
+
+     39 01 00 00 00 00 03 53 2C 30
+
+     05 01 00 00 00 00 01 29
+
+    ];
+
+    qcom,mdss-dsi-novr-command = [
+     05 01 00 00 64 00 01 28
+
+     15 01 00 00 00 00 02 B0 AC
+
+     39 01 00 00 00 00 08 E5
+      00 3A 00 3A 00 0E 10
+     39 01 00 00 00 00 2A B5
+      75 60 2D 5D 80 00 0A 0B
+      00 05 0B 00 80 0D 0E 40
+      00 0C 00 16 00 B8 00 80
+      0D 0E 40 00 0C 00 16 00
+      B8 00 81 00 03 03 03 01
+      01
+
+     15 01 00 00 00 00 02 B0 CA
+
+     39 01 00 00 00 00 03 53 0C 30
+
+     39 01 00 00 00 00 07 55 04 61 DB 04 70 DB
+
+     05 01 00 00 00 00 01 29
+
+    ];
+
+    qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-off-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-h-sync-pulse = <0>;
+    qcom,compression-mode = "dsc";
+    qcom,mdss-dsc-slice-height = <16>;
+    qcom,mdss-dsc-slice-width = <540>;
+    qcom,mdss-dsc-slice-per-pkt = <1>;
+    qcom,mdss-dsc-bit-per-component = <8>;
+    qcom,mdss-dsc-bit-per-pixel = <8>;
+    qcom,mdss-dsc-block-prediction-enable;
+
+
+    qcom,display-topology = <2 2 1>;
+    qcom,default-topology-index = <0>;
+   };
+  };
+
+  google,lp-modes {
+   lp-mode@0 {
+    label = "off";
+
+    google,dsi-lp-brightness-threshold = <0>;
+    google,dsi-lp-command = [
+     05 01 00 00 00 00 01 22
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+
+   lp-mode@1 {
+    label = "dim";
+
+    google,dsi-lp-brightness-threshold = <5>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 51 00 6B
+     05 01 00 00 00 00 01 12
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+   lp-mode@2 {
+    label = "low";
+
+    google,dsi-lp-brightness-threshold = <10>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 51 00 E0
+     05 01 00 00 00 00 01 12
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+
+   lp-mode@3 {
+    label = "high";
+
+    google,dsi-lp-brightness-threshold = <255>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 51 03 87
+     05 01 00 00 00 00 01 12
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+  };
+
+  google,hbm-ranges {
+   google,dsi-hbm-exit-command = [
+
+    39 01 00 00 00 00 03 53 4C 30
+   ];
+   google,dsi-hbm-exit-num-dimming-frames = <32>;
+   google,dsi-hbm-exit-dimming-stop-command = [
+
+    39 01 00 00 00 00 03 53 0C 30
+   ];
+   google,dsi-hbm-commands-state = "dsi_lp_mode";
+
+   hbm-range@0 {
+    google,dsi-hbm-range-brightness-threshold = <1>;
+
+    google,dsi-hbm-range-bl-min-level = <0x8>;
+    google,dsi-hbm-range-bl-max-level = <0x3ff>;
+
+    google,dsi-hbm-range-entry-command = [
+
+     39 01 00 00 00 00 03 53 4C 30
+    ];
+    google,dsi-hbm-range-num-dimming-frames = <32>;
+    google,dsi-hbm-range-dimming-stop-command = [
+
+     39 01 00 00 00 00 03 53 0C 30
+    ];
+    google,dsi-hbm-range-commands-state =
+     "dsi_lp_mode";
+   };
+  };
+ };
+};
+# 16 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-s6e3ha8-dsc-wqhd-cmd.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-s6e3ha8-dsc-wqhd-cmd.dtsi"
+&mdss_mdp {
+ dsi_s6e3ha8_dsc_wqhd_cmd: qcom,mdss_dsi_s6e3ha8 {
+  compatible = "google,dsi_binned_lp";
+
+  qcom,mdss-dsi-panel-name = "S6E3HA8 6.3 command mode panel";
+  google,mdss-dsi-panel-vendor = "SAMSUNG";
+  google,mdss-dsi-panel-sn-location = <0xA1 6 7>;
+  qcom,mdss-dsi-panel-type = "dsi_cmd_mode";
+  qcom,mdss-dsi-virtual-channel-id = <0>;
+  qcom,mdss-dsi-bpp = <24>;
+  qcom,mdss-dsi-color-order = "rgb_swap_rgb";
+  qcom,mdss-dsi-underflow-color = <0xff>;
+  qcom,mdss-dsi-traffic-mode = "non_burst_sync_event";
+  qcom,mdss-dsi-lane-map = "lane_map_0123";
+  qcom,mdss-dsi-panel-broadcast-mode;
+  qcom,mdss-dsi-lane-0-state;
+  qcom,mdss-dsi-lane-1-state;
+  qcom,mdss-dsi-lane-2-state;
+  qcom,mdss-dsi-lane-3-state;
+  qcom,mdss-dsi-reset-sequence = <1 10>, <0 1>, <1 0>;
+
+  qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_dcs";
+  qcom,mdss-dsi-bl-vr-min-safe-level = <0xa>;
+  qcom,mdss-dsi-bl-min-level = <0x5>;
+  qcom,mdss-dsi-bl-max-level = <0x3ff>;
+  qcom,mdss-dsi-panel-hdr-enabled;
+  qcom,mdss-dsi-panel-hdr-color-primaries = <14500 15500 32000
+   17000 15500 30000 8000 3000>;
+  qcom,mdss-dsi-panel-peak-brightness = <5530000>;
+  qcom,mdss-dsi-panel-blackness-level = <40>;
+
+  qcom,mdss-dsi-dma-trigger = "trigger_sw";
+  qcom,mdss-dsi-mdp-trigger = "none";
+  qcom,mdss-dsi-wr-mem-start = <0x2c>;
+  qcom,mdss-dsi-wr-mem-continue = <0x3c>;
+  qcom,mdss-dsi-te-pin-select = <1>;
+  qcom,mdss-dsi-te-dcs-command = <1>;
+
+  qcom,mdss-dsi-te-check-enable;
+  qcom,mdss-dsi-te-using-te-pin;
+
+  qcom,mdss-dsi-panel-status-check-mode = "te_signal_check";
+
+  qcom,mdss-dsi-init-delay-us = <5000>;
+
+  qcom,mdss-pan-physical-width-dimension = <70>;
+  qcom,mdss-pan-physical-height-dimension = <144>;
+
+  qcom,mdss-dsi-display-timings {
+   timing@0 {
+    qcom,mdss-dsi-panel-framerate = <60>;
+    qcom,mdss-dsi-panel-width = <1440>;
+    qcom,mdss-dsi-panel-height = <2960>;
+    qcom,mdss-dsi-h-front-porch = <116>;
+    qcom,mdss-dsi-h-back-porch = <116>;
+    qcom,mdss-dsi-h-pulse-width = <44>;
+    qcom,mdss-dsi-h-sync-skew = <0>;
+    qcom,mdss-dsi-v-back-porch = <80>;
+    qcom,mdss-dsi-v-front-porch = <124>;
+    qcom,mdss-dsi-v-pulse-width = <120>;
+    qcom,mdss-dsi-h-left-border = <0>;
+    qcom,mdss-dsi-h-right-border = <0>;
+    qcom,mdss-dsi-v-top-border = <0>;
+    qcom,mdss-dsi-v-bottom-border = <0>;
+    qcom,mdss-dsi-on-command = [
+     07 01 00 00 00 00 01 01
+     05 01 00 00 78 00 01 11
+     15 01 00 00 00 00 02 53 20
+     05 01 00 00 00 00 02 35 00
+     39 01 00 00 00 00 03 F0 5A 5A
+     39 01 00 00 00 00 0A B9 01 B0 81 09 00 00 00 11 03
+     39 01 00 00 00 00 03 F0 A5 A5
+     05 01 00 00 00 00 01 29
+    ];
+    qcom,mdss-dsi-on-command-state = "dsi_lp_mode";
+    qcom,mdss-dsi-off-command = [
+     05 01 00 00 0A 00 02 28 00
+     05 01 00 00 78 00 02 10 00
+    ];
+
+    qcom,mdss-dsi-vr-command = [
+     39 01 00 00 00 00 03 F0 5A 5A
+     15 01 00 00 00 00 02 B8 11
+     39 01 00 00 00 00 05 B1 02 54 0C 00
+     15 01 00 00 00 00 02 B0 07
+     15 01 00 00 00 00 02 B1 07
+     15 01 00 00 00 00 02 B0 10
+     39 01 00 00 00 00 03 CB 03 0E
+     15 01 00 00 00 00 02 B0 25
+     15 01 00 00 00 00 02 CB 15
+     15 01 00 00 00 00 02 B0 43
+     15 01 00 00 00 00 02 CB 8F
+     15 01 00 00 00 00 02 F7 03
+     39 01 00 00 00 00 03 F0 A5 A5
+     39 01 00 00 00 00 03 51 00 BB
+     15 01 00 00 00 00 02 53 20
+    ];
+
+    qcom,mdss-dsi-novr-command = [
+     39 01 00 00 00 00 03 F0 5A 5A
+     15 01 00 00 00 00 02 B8 15
+     39 01 00 00 00 00 05 B1 00 0C 0C A0
+     15 01 00 00 00 00 02 B0 08
+     15 01 00 00 00 00 02 B1 0C
+     15 01 00 00 00 00 02 B0 10
+     39 01 00 00 00 00 03 CB 0B 06
+     15 01 00 00 00 00 02 B0 25
+     15 01 00 00 00 00 02 CB 09
+     15 01 00 00 00 00 02 B0 43
+     15 01 00 00 00 00 02 CB 0F
+     15 01 00 00 14 00 02 F7 03
+     39 01 00 00 00 00 03 F0 A5 A5
+    ];
+    qcom,mdss-dsi-off-command-state = "dsi_hs_mode";
+
+    qcom,mdss-dsi-nolp-command = [
+     15 01 00 00 00 00 02 53 20
+    ];
+
+    qcom,compression-mode = "dsc";
+    qcom,mdss-dsc-slice-height = <40>;
+    qcom,mdss-dsc-slice-width = <720>;
+    qcom,mdss-dsc-slice-per-pkt = <1>;
+    qcom,mdss-dsc-bit-per-component = <8>;
+    qcom,mdss-dsc-bit-per-pixel = <8>;
+    qcom,mdss-dsc-block-prediction-enable;
+
+
+    qcom,display-topology = <2 2 1>;
+    qcom,default-topology-index = <0>;
+   };
+  };
+
+  google,lp-modes {
+   lp-mode@0 {
+    label = "off";
+
+    google,dsi-lp-brightness-threshold = <0>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 51 00 00
+     15 01 00 00 00 00 02 53 20
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+
+   lp-mode@1 {
+    label = "low";
+
+    google,dsi-lp-brightness-threshold = <10>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 F0 5A 5A
+     15 01 00 00 00 00 02 B0 05
+     15 01 00 00 00 00 02 BB 84
+     15 01 00 00 00 00 02 53 03
+     15 01 00 00 00 00 02 F7 03
+     39 01 00 00 00 00 03 F0 A5 A5
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+
+   lp-mode@2 {
+    label = "high";
+    google,dsi-lp-brightness-threshold = <255>;
+    google,dsi-lp-command = [
+     39 01 00 00 00 00 03 F0 5A 5A
+     15 01 00 00 00 00 02 B0 05
+     15 01 00 00 00 00 02 BB 04
+     15 01 00 00 00 00 02 53 02
+     15 01 00 00 00 00 02 F7 03
+     39 01 00 00 00 00 03 F0 A5 A5
+    ];
+    google,dsi-lp-command-state = "dsi_lp_mode";
+   };
+  };
+
+  google,hbm-ranges {
+   google,dsi-hbm-exit-command = [
+
+
+
+    15 01 00 00 00 00 02 53 28
+   ];
+   google,dsi-hbm-exit-num-dimming-frames = <32>;
+   google,dsi-hbm-exit-dimming-stop-command = [
+
+
+
+    15 01 00 00 00 00 02 53 20
+   ];
+   google,dsi-hbm-commands-state = "dsi_lp_mode";
+
+   hbm-range@0 {
+    google,dsi-hbm-range-brightness-threshold = <1>;
+
+    google,dsi-hbm-range-bl-min-level = <0x5>;
+    google,dsi-hbm-range-bl-max-level = <0x3ff>;
+    google,dsi-hbm-range-entry-command = [
+
+
+
+     15 01 00 00 00 00 02 53 28
+    ];
+    google,dsi-hbm-range-num-dimming-frames = <32>;
+    google,dsi-hbm-range-dimming-stop-command = [
+
+
+
+     15 01 00 00 00 00 02 53 20
+    ];
+    google,dsi-hbm-range-commands-state =
+     "dsi_lp_mode";
+   };
+
+   hbm-range@1 {
+# 236 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/dsi-panel-s6e3ha8-dsc-wqhd-cmd.dtsi"
+    google,dsi-hbm-range-brightness-threshold =
+     <170>;
+
+    google,dsi-hbm-range-bl-min-level = <0x3ff>;
+    google,dsi-hbm-range-bl-max-level = <0x3ff>;
+
+    google,dsi-hbm-range-entry-command = [
+
+     15 01 00 00 00 00 02 53 E8
+    ];
+    google,dsi-hbm-range-num-dimming-frames = <32>;
+    google,dsi-hbm-range-dimming-stop-command = [
+
+
+
+     15 01 00 00 00 00 02 53 E0
+    ];
+
+    google,dsi-hbm-range-commands-state =
+     "dsi_lp_mode";
+   };
+  };
+ };
+};
+# 17 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi" 2
+
+&sde_te_active {
+ mux {
+  pins = "gpio12";
+ };
+ config {
+  pins = "gpio12";
+ };
+};
+
+&sde_te_suspend {
+ mux {
+  pins = "gpio12";
+ };
+ config {
+  pins = "gpio12";
+ };
+};
+
+&tlmm {
+ se8_spiflash: se8_spiflash {
+  mux {
+   pins = "gpio65", "gpio66", "gpio67", "gpio68";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio65", "gpio66", "gpio67", "gpio68";
+   input-enable;
+   bias-disable;
+  };
+ };
+};
+
+&soc {
+ dsi_sim_vid_display: qcom,dsi-display@4 {
+  compatible = "qcom,dsi-display";
+  label = "dsi_sim_vid_display";
+  qcom,display-type = "primary";
+
+  qcom,dsi-ctrl = <&mdss_dsi0>;
+  qcom,dsi-phy = <&mdss_dsi_phy0>;
+  clocks = <&mdss_dsi0_pll 6>,
+   <&mdss_dsi0_pll 9>;
+  clock-names = "src_byte_clk", "src_pixel_clk";
+
+  pinctrl-names = "panel_active", "panel_suspend";
+  pinctrl-0 = <&sde_dsi_active &sde_te_active>;
+  pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
+
+  qcom,dsi-panel = <&dsi_sim_vid>;
+ };
+
+ dsi_sw43402_cmd_display: qcom,dsi-display@50 {
+  compatible = "qcom,dsi-display";
+  label = "dsi_sw43402_cmd_display";
+  qcom,display-type = "primary";
+
+  qcom,dsi-ctrl = <&mdss_dsi0>;
+  qcom,dsi-phy = <&mdss_dsi_phy0>;
+  clocks = <&mdss_dsi0_pll 6>,
+   <&mdss_dsi0_pll 9>;
+  clock-names = "src_byte_clk", "src_pixel_clk";
+
+  pinctrl-names = "panel_active", "panel_suspend";
+  pinctrl-0 = <&sde_dsi_active &sde_te_active &sde_pmgpio_active>;
+  pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend &sde_pmgpio_suspend>;
+
+  qcom,dsi-panel = <&dsi_sw43402_dsc_qhd_cmd>;
+
+  vddio-supply = <&pm8998_l14>;
+  vdd-supply = <&pm8998_l28>;
+ };
+
+ dsi_sw43408_cmd_display: qcom,dsi-display@51 {
+  compatible = "qcom,dsi-display";
+  label = "dsi_sw43408_cmd_display";
+  qcom,display-type = "primary";
+
+  qcom,dsi-ctrl = <&mdss_dsi0>;
+  qcom,dsi-phy = <&mdss_dsi_phy0>;
+  clocks = <&mdss_dsi0_pll 6>,
+   <&mdss_dsi0_pll 9>;
+  clock-names = "src_byte_clk", "src_pixel_clk";
+
+  pinctrl-names = "panel_active", "panel_suspend";
+  pinctrl-0 = <&sde_dsi_active &sde_te_active>;
+  pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
+
+  qcom,dsi-panel = <&dsi_sw43408_dsc_fhd_cmd>;
+
+  vddi-supply = <&pm8998_l14>;
+  vpnl-supply = <&pm8998_l28>;
+  lab-supply = <&lab_regulator>;
+ };
+
+ dsi_s6e3ha8_cmd_display: qcom,dsi-display@52 {
+  compatible = "qcom,dsi-display";
+  label = "dsi_s6e3ha8_cmd_display";
+  qcom,display-type = "primary";
+
+  qcom,dsi-ctrl = <&mdss_dsi0>;
+  qcom,dsi-phy = <&mdss_dsi_phy0>;
+  clocks = <&mdss_dsi0_pll 6>,
+   <&mdss_dsi0_pll 9>;
+  clock-names = "src_byte_clk", "src_pixel_clk";
+
+  pinctrl-names = "panel_active", "panel_suspend";
+  pinctrl-0 = <&sde_dsi_active &sde_te_active &se8_spiflash>;
+  pinctrl-1 = <&sde_dsi_suspend &sde_te_suspend>;
+
+  qcom,dsi-panel = <&dsi_s6e3ha8_dsc_wqhd_cmd>;
+
+  vddi-supply = <&pm8998_l14>;
+  vci-supply = <&pm8998_l28>;
+  lab-supply = <&lab_regulator>;
+ };
+
+ sde_wb: qcom,wb-display@0 {
+  compatible = "qcom,wb-display";
+  cell-index = <0>;
+  label = "wb_display";
+ };
+
+ ext_disp: qcom,msm-ext-disp {
+  compatible = "qcom,msm-ext-disp";
+
+  ext_disp_audio_codec: qcom,msm-ext-disp-audio-codec-rx {
+   compatible = "qcom,msm-ext-disp-audio-codec-rx";
+  };
+ };
+};
+# 160 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-display.dtsi"
+&mdss_dsi1 {
+ status = "disabled";
+};
+
+&sde_dp {
+ status = "disabled";
+};
+
+&mdss_mdp {
+ connectors = <&sde_rscc &sde_wb>;
+ qcom,sde-vsync-source = <2>;
+};
+
+&dsi_sw43402_dsc_qhd_cmd {
+ qcom,panel-supply-entries = <&dsi_panel_pwr_supply_vdd_no_labibb>;
+
+ qcom,mdss-dsi-t-clk-post = <0x0B>;
+ qcom,mdss-dsi-t-clk-pre = <0x23>;
+
+ qcom,platform-reset-gpio = <&tlmm 6 0>;
+ qcom,mdss-dsi-display-timings {
+  timing@0 {
+   qcom,mdss-dsi-panel-phy-timings =
+     [00 15 05 05 20 1F 05 05 03 03 04 00];
+  };
+ };
+};
+
+&dsi_sw43408_dsc_fhd_cmd {
+ qcom,panel-supply-entries = <&dsi_panel_pwr_supply_sw43408>;
+ qcom,mdss-dsi-t-clk-post = <0x09>;
+ qcom,mdss-dsi-t-clk-pre = <0x1A>;
+
+ qcom,platform-reset-gpio = <&tlmm 6 0>;
+ qcom,mdss-dsi-display-timings {
+  timing@0 {
+   qcom,mdss-dsi-panel-phy-timings =
+     [00 0E 03 03 1E 1D 04 04 02 03 04 00];
+  };
+ };
+};
+
+&dsi_s6e3ha8_dsc_wqhd_cmd {
+ qcom,panel-supply-entries = <&dsi_panel_pwr_supply_s6e3ha8>;
+
+ qcom,platform-reset-gpio = <&tlmm 6 0>;
+
+ qcom,mdss-dsi-t-clk-post = <0x0D>;
+ qcom,mdss-dsi-t-clk-pre = <0x2F>;
+ qcom,mdss-dsi-display-timings {
+  timing@0 {
+   qcom,mdss-dsi-panel-phy-timings =
+     [00 1E 08 07 24 22 08 08 05 03 04 00];
+  };
+ };
+};
+
+&dsi_sim_vid {
+ qcom,panel-supply-entries = <&dsi_panel_pwr_supply_vdd_no_labibb>;
+ qcom,mdss-dsi-bl-pmic-control-type = "bl_ctrl_wled";
+ qcom,platform-reset-gpio = <&tlmm 6 0>;
+ qcom,mdss-dsi-t-clk-post = <0x0d>;
+ qcom,mdss-dsi-t-clk-pre = <0x2d>;
+ qcom,mdss-dsi-display-timings {
+  timing@0{
+   qcom,mdss-dsi-panel-phy-timings = [00 1c 07 07 23 21 07
+    07 05 03 04 00];
+   qcom,display-topology = <1 0 1>,
+      <2 0 1>;
+   qcom,default-topology-index = <0>;
+  };
+ };
+};
+
+&pmi8998_wled {
+ status = "okay";
+ qcom,disp-type-amoled;
+ qcom,led-strings-list = [02 03];
+ qcom,avdd-target-voltage-mv = <7600>;
+ qcom,en-cabc;
+};
+
+&labibb {
+ status = "okay";
+ qcom,qpnp-labibb-mode = "amoled";
+ qcom,swire-control;
+ qcom,aod-mode;
+};
+
+&pm8998_l28 {
+ qcom,init-voltage = <3000000>;
+};
+
+&soc {
+ dsi_panel_pwr_supply_vdd_no_labibb: dsi_panel_pwr_supply_vdd_no_labibb {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  qcom,panel-supply-entry@0 {
+   reg = <0>;
+   qcom,supply-name = "vddio";
+   qcom,supply-min-voltage = <1800000>;
+   qcom,supply-max-voltage = <1800000>;
+   qcom,supply-enable-load = <62000>;
+   qcom,supply-disable-load = <80>;
+   qcom,supply-post-on-sleep = <20>;
+  };
+
+  qcom,panel-supply-entry@1 {
+   reg = <1>;
+   qcom,supply-name = "vdd";
+   qcom,supply-min-voltage = <3000000>;
+   qcom,supply-max-voltage = <3000000>;
+   qcom,supply-enable-load = <857000>;
+   qcom,supply-disable-load = <0>;
+   qcom,supply-post-on-sleep = <0>;
+  };
+ };
+
+ dsi_panel_pwr_supply_sw43408: dsi_panel_pwr_supply_sw43408 {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  qcom,panel-supply-entry@0 {
+   reg = <0>;
+   qcom,supply-name = "vddi";
+   qcom,supply-min-voltage = <1800000>;
+   qcom,supply-max-voltage = <1800000>;
+   qcom,supply-enable-load = <62000>;
+   qcom,supply-disable-load = <80>;
+   qcom,supply-post-on-sleep = <0>;
+  };
+
+  qcom,panel-supply-entry@1 {
+   reg = <1>;
+   qcom,supply-name = "vpnl";
+   qcom,supply-min-voltage = <3000000>;
+   qcom,supply-max-voltage = <3000000>;
+   qcom,supply-enable-load = <857000>;
+   qcom,supply-disable-load = <0>;
+   qcom,supply-post-on-sleep = <1>;
+  };
+ };
+
+ dsi_panel_pwr_supply_s6e3ha8: dsi_panel_pwr_supply_s6e3ha8 {
+  #address-cells = <1>;
+  #size-cells = <0>;
+
+  qcom,panel-supply-entry@0 {
+   reg = <0>;
+   qcom,supply-name = "vddi";
+   qcom,supply-min-voltage = <1800000>;
+   qcom,supply-max-voltage = <1800000>;
+   qcom,supply-enable-load = <100000>;
+   qcom,supply-disable-load = <100>;
+   qcom,supply-post-on-sleep = <0>;
+  };
+
+  qcom,panel-supply-entry@1 {
+   reg = <1>;
+   qcom,supply-name = "vci";
+   qcom,supply-min-voltage = <3000000>;
+   qcom,supply-max-voltage = <3000000>;
+   qcom,supply-enable-load = <100000>;
+   qcom,supply-disable-load = <100>;
+   qcom,supply-post-on-sleep = <0>;
+  };
+ };
+};
+# 32 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-pinctrl.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-pinctrl.dtsi"
+&tlmm {
+ pmx_sde {
+  sde_dsi_active {
+   mux {
+    pins = "gpio6";
+   };
+   config {
+    pins = "gpio6";
+   };
+  };
+  sde_dsi_suspend {
+   mux {
+    pins = "gpio6";
+   };
+   config {
+    pins = "gpio6";
+   };
+  };
+ };
+ ts_mux {
+  ts_int_active: ts_int_active {
+   mux {
+    pins = "gpio125";
+    function = "gpio";
+   };
+   config {
+    pins = "gpio125";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+  ts_int_suspend: ts_int_suspend {
+   mux {
+    pins = "gpio125";
+    function = "gpio";
+   };
+   config {
+    pins = "gpio125";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+ };
+};
+
+&pm8998_gpios {
+
+ sde_pmgpio_active: sde_pmgpio_active {
+  pins = "gpio2", "gpio5";
+  function = "normal";
+  input-enable;
+  bias-disable;
+  power-source = <0>;
+ };
+ sde_pmgpio_suspend: sde_pmgpio_suspend {
+  pins = "gpio2", "gpio5";
+  function = "normal";
+  input-enable;
+  bias-disable;
+  power-source = <0>;
+ };
+};
+# 33 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-haptics.dtsi" 1
+
+
+
+
+
+
+
+&tlmm {
+ cs40l20_rst:cs40l20_rst {
+  mux {
+   pins = "gpio87";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio87";
+   drive-strength = <2>;
+   output-low;
+  };
+ };
+};
+
+&qupv3_se5_spi {
+ status = "disabled";
+};
+
+&qupv3_se5_i2c {
+ status = "okay";
+ qcom,clk-freq-out = <1000000>;
+ cs40l20@43 {
+  compatible = "cirrus,cs40l20";
+  pinctrl-names = "default";
+  pinctrl-0 = <&cs40l20_rst>;
+  reset-gpios = <&tlmm 87 0>;
+  reg = <0x43>;
+  cirrus,boost-ind-nanohenry = <1000>;
+  cirrus,boost-cap-microfarad = <4>;
+  cirrus,boost-ipk-milliamp = <4500>;
+  cirrus,f0-default = <2514000>;
+  cirrus,f0-min = <2293760>;
+  cirrus,f0-max = <2703360>;
+  cirrus,redc-default = <327728>;
+  cirrus,redc-min = <302112>;
+  cirrus,redc-max = <369248>;
+  cirrus,gpio1-rise-index = <5>;
+  cirrus,gpio1-fall-index = <4>;
+  cirrus,gpio1-fall-timeout = <47278>;
+  cirrus,gpio1-mode = <2>;
+  status = "ok";
+ };
+};
+# 34 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-nfc.dtsi" 1
+&tlmm {
+ nfc {
+
+  nfc_int_default: nfc_int_default {
+
+   mux {
+
+    pins = "gpio63";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio63";
+    drive-strength = <2>;
+    bias-pull-down;
+   };
+  };
+
+  nfc_enable_default: nfc_enable_default {
+
+   mux {
+
+
+    pins = "gpio25", "gpio23", "gpio79";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio25", "gpio23", "gpio79";
+    drive-strength = <2>;
+    bias-pull-down;
+   };
+  };
+ };
+};
+
+&qupv3_se3_i2c {
+ status = "okay";
+ nq: nq@28 {
+  status = "okay";
+  compatible = "qcom,nq-nci";
+  reg = <0x28>;
+  interrupt-parent = <&tlmm>;
+  interrupt-names = "nfc_irq";
+  interrupts = <63 0>;
+  qcom,nq-ven = <&tlmm 25 0x00>;
+  qcom,nq-irq = <&tlmm 63 0x00>;
+  qcom,nq-firm = <&tlmm 79 0x00>;
+  qcom,nq-esepwr = <&tlmm 23 0x00>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&nfc_int_default &nfc_enable_default>;
+  qcom,nq-postinit-cmd = /bits/ 8
+   <0x5 0x20 0x02 0x05 0x01 0xA0 0xF2 0x01 0x01>;
+ };
+};
+
+&qupv3_se11_spi {
+ status = "ok";
+
+ ese@0 {
+  compatible = "nxp,pn81a";
+  reg = <0>;
+  spi-max-frequency = <10000000>;
+
+
+
+  nxp,nfcc = "1-0028";
+ };
+};
+# 35 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-citadel.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-citadel.dtsi"
+&tlmm {
+ citadel {
+  ctdl_ap_irq: ctdl_ap_irq {
+   mux {
+    pins = "gpio129";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio129";
+    drive-strength = <2>;
+    input-enable;
+    bias-disable;
+   };
+  };
+
+  ap_ctdl_irq: ap_ctdl_irq {
+   mux {
+    pins = "gpio135";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio135";
+    drive-strength = <2>;
+    bias-pull-down;
+    output-high;
+   };
+  };
+ };
+};
+
+&qupv3_se4_spi_pins {
+ citadel_pin_defaults: citadel_pin_defaults {
+  mux {
+   pins = "gpio89", "gpio90", "gpio91", "gpio92";
+   function = "qup4";
+  };
+ };
+};
+
+&qupv3_se4_spi {
+ status = "okay";
+ pinctrl-0 = <&citadel_pin_defaults>;
+ pinctrl-1 = <&citadel_pin_defaults>;
+ citadel@0 {
+  compatible = "google,citadel";
+  interrupt-parent = <&tlmm>;
+  interrupts = <129 0x0>;
+  citadel,ctdl_ap_irq = <&tlmm 129 0x0>;
+  citadel,ctdl_rst = <&pmi8998_gpios 12 0>;
+  pinctrl-names = "ap_ctdl_irq";
+  pinctrl-0 = <&ap_ctdl_irq>;
+  reg = <0>;
+  spi-max-frequency = <1200000>;
+ };
+};
+# 36 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-easel.dtsi" 1
+# 15 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-easel.dtsi"
+&aliases {
+ serial1 = "/soc/qcom,qup_uart@88c000";
+ spi10 = "/soc/spi@880000";
+};
+
+&pcie1 {
+
+ qcom,msi-gicm-addr = <>;
+ qcom,msi-gicm-base = <>;
+
+
+ qcom,ep-latency = <1>;
+
+
+ wake-gpio = <>;
+
+ perst-gpio = <&tlmm 35 0>;
+
+
+ pinctrl-0 = <&pcie1_clkreq_default &pcie1_perst_default>;
+};
+
+&tlmm {
+ pcie1 {
+  pcie1_perst_default: pcie1_perst_default {
+   mux {
+    pins = "gpio35";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio35";
+    drive-strength = <2>;
+    bias-pull-down;
+   };
+  };
+ };
+
+ s2mpb04_pins {
+  s2mpb04_pon_default: s2mpb04_pon_default {
+   mux {
+    pins = "gpio29";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio29";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+
+  s2mpb04_intb_default: s2mpb04_intb_default {
+   mux {
+    pins = "gpio30";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio30";
+    drive-strength = <2>;
+    bias-pull-up;
+   };
+  };
+
+  s2mpb04_resetb_default: s2mpb04_resetb_default {
+   mux {
+    pins = "gpio114";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio114";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+  s2mpb04_resetb_devboard: s2mpb04_resetb_devboard {
+   mux {
+    pins = "gpio114";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio114";
+    drive-strength = <2>;
+    bias-pull-down;
+   };
+  };
+ };
+
+ easel_pins {
+  easel_ready_default: easel_ready_default {
+   mux {
+    pins = "gpio52";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio52";
+    drive-strength = <2>;
+    bias-pull-down;
+   };
+  };
+
+  easel_boot_mode_default: easel_boot_mode_default {
+   mux {
+    pins = "gpio11";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio11";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+ };
+};
+
+&qupv3_se10_i2c {
+ status = "okay";
+ easel_pmic: s2mpb04@66 {
+  compatible = "samsung,s2mpb04";
+  reg = <0x66>;
+
+  interrupt-parent = <&tlmm>;
+  interrupts = <30 2>;
+  interrupt-names = "s2mpb04_intb";
+
+  pinctrl-names = "default";
+  pinctrl-0 = <&s2mpb04_pon_default &s2mpb04_intb_default
+   &s2mpb04_resetb_default>;
+
+  samsung,pon-gpio = <&tlmm 29 0x00>;
+  samsung,intb-gpio = <&tlmm 30 0x00>;
+  samsung,resetb-gpio = <&tlmm 114 0x00>;
+
+  s2mpb04_regulator: regulator {
+   compatible = "samsung,s2mpb04-regulator";
+  };
+
+  s2mpb04_gpio: gpio {
+   compatible = "samsung,s2mpb04-gpio";
+   gpio-controller;
+   #gpio-cells = <2>;
+  };
+
+  s2mpb04_thermal: sensor {
+   compatible = "samsung,s2mpb04-thermal";
+   #thermal-sensor-cells = <0>;
+  };
+ };
+};
+
+&qupv3_se0_spi {
+ status = "okay";
+ mnh-spi@0 {
+  compatible = "intel,mnh-spi";
+  reg = <0>;
+  spi-max-frequency = <25000000>;
+  spi-cpol;
+  spi-cpha;
+ };
+};
+
+
+
+
+
+&qupv3_se3_2uart {
+ status = "disabled";
+};
+
+&soc {
+ mnh-sm {
+  compatible = "intel,mnh-sm";
+
+  clocks = <&clock_rpmh 2>;
+  clock-names = "ref_clk";
+
+  pinctrl-names = "default";
+  pinctrl-0 = <&easel_ready_default &easel_boot_mode_default>;
+
+  soc-pwr-good-gpio = <&s2mpb04_gpio 0 0x00>;
+  ddr-pad-iso-n-gpio = <&s2mpb04_gpio 1 0x00>;
+  ready-gpio = <&tlmm 52 0x00>;
+  boot-mode-gpio = <&tlmm 11 0x00>;
+ };
+
+ mnh_thermal: mnh_thermal {
+  compatible = "intel,mnh_thermal";
+  #thermal-sensor-cells = <1>;
+  #cooling-cells = <2>;
+ };
+
+ thermal-zones {
+  mnh_ipu1 {
+   polling-delay-passive = <1000>;
+   polling-delay = <0>;
+   thermal-sensors = <&mnh_thermal 0>;
+  };
+
+  mnh_ipu2 {
+   polling-delay-passive = <1000>;
+   polling-delay = <0>;
+   thermal-sensors = <&mnh_thermal 1>;
+  };
+
+  mnh_cpu {
+   polling-delay-passive = <1000>;
+   polling-delay = <0>;
+   thermal-sensors = <&mnh_thermal 2>;
+  };
+
+  mnh_lpddr {
+   polling-delay-passive = <1000>;
+   polling-delay = <0>;
+   thermal-sensors = <&mnh_thermal 3>;
+  };
+ };
+};
+# 37 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-rainbow.dtsi" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-rainbow.dtsi"
+&cam_cci {
+
+ status = "ok";
+ vd6281: qcom,rainbow@20 {
+  compatible = "qcom,rainbow";
+  cci-master = <0>;
+  reg = <0x20>;
+  vdd-supply = <&pm8998_lvs1>;
+  regulator-names = "vdd";
+  hw-version = <21>;
+  status = "ok";
+ };
+};
+# 38 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-fingerprint.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-fingerprint.dtsi"
+&soc {
+ fp_fpc1020 {
+  status = "ok";
+  compatible = "fpc,fpc1020";
+  interrupt-parent = <&tlmm>;
+  interrupts = <121 0x0>;
+  fpc,gpio_rst = <&tlmm 7 0x0>;
+  fpc,gpio_irq = <&tlmm 121 0x0>;
+  vdd_io-supply = <&pm8998_s4>;
+
+  pinctrl-names = "fpc1020_reset_reset",
+   "fpc1020_reset_active",
+   "fpc1020_irq_active";
+
+  pinctrl-0 = <&fp_reset_l>;
+  pinctrl-1 = <&fp_reset_l_output_high>;
+  pinctrl-2 = <&fp_to_ap_irq_default>;
+ };
+};
+
+&tlmm {
+ fp_reset_l: fp_reset_l {
+  mux {
+    pins = "gpio7";
+    function = "gpio";
+  };
+
+  config {
+   pins = "gpio7";
+   drive-strength = <2>;
+   bias-disable;
+   output-low;
+  };
+ };
+
+ fp_reset_l_output_high: fp_reset_l_output_high {
+  mux {
+   pins = "gpio7";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio7";
+   drive-strength = <2>;
+   bias-disable;
+   output-high;
+  };
+ };
+
+ fp_to_ap_irq_default: fp_to_ap_irq_default {
+  mux {
+   pins = "gpio121";
+   function = "gpio";
+  };
+
+  config {
+   pins = "gpio121";
+   drive-strength = <2>;
+   bias-pull-down;
+  };
+ };
+};
+# 39 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-regulator.dtsi" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-regulator.dtsi"
+&soc {
+
+ rpmh-regulator-ldoa19 {
+  qcom,supported-modes = <4>;
+ };
+
+ rpmh-regulator-ldoa22 {
+  qcom,supported-modes = <>;
+  pm8998_l22: regulator-l22 {
+   qcom,init-mode = <>;
+  };
+ };
+};
+# 40 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-wcharger.dtsi" 1
+# 12 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-wcharger.dtsi"
+&tlmm {
+ p9221_det_int: p9221_det_int {
+  mux {
+   pins = "gpio36";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio36";
+   drive-strength = <2>;
+   bias-pull-down;
+  };
+ };
+
+ p9221_int: p9221_int {
+  mux {
+   pins = "gpio124";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio124";
+   drive-strength = <2>;
+   bias-pull-up;
+  };
+ };
+};
+
+&qupv3_se10_i2c {
+ p9221: p9221@61 {
+  compatible = "idt,p9221";
+  reg = <0x61>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&p9221_int
+        &p9221_det_int>;
+  interrupt-parent = <&tlmm>;
+  interrupts = <124 0>,
+        <36 0>;
+  idt,gpio_qien = <&tlmm 122 0x00>;
+  idt,gpio_slct = <&tlmm 37 0x00>;
+  idt,irq_gpio = <&tlmm 124 0x00>;
+  idt,irq_det_gpio = <&tlmm 36 0x00>;
+  google,alignment_frequencies = /bits/ 32 <87000 120000 130000
+         140000 205000>;
+  google,alignment_scalar = <4>;
+  google,alignment_hysteresis = <5000>;
+  status = "ok";
+  google,power_mitigate_threshold = <90>;
+ };
+};
+# 41 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-memory.dtsi" 1
+# 27 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-memory.dtsi"
+&pil_modem_mem {
+ reg = <0 0x8e000000 0 0x9800000>;
+};
+
+&pil_video_mem {
+ reg = <0 0x97800000 0 0x500000>;
+};
+
+&pil_cdsp_mem {
+ reg = <0 0x97D00000 0 0x800000>;
+};
+
+&pil_mba_mem {
+ reg = <0 0x98500000 0 0x200000>;
+};
+
+&pil_slpi_mem {
+ reg = <0 0x98700000 0 0x1400000>;
+};
+
+&pil_spss_mem {
+ reg = <0 0x99B00000 0 0x100000>;
+};
+
+&secure_display_memory {
+ size = <0x0 0x9000000>;
+};
+
+&reserved_memory {
+ debug_info: debug_info@0 {
+  compatible = "removed-dma-pool";
+  no-map;
+  reg = <0 0xa1800000 0 0x00010000>;
+ };
+
+ ramoops_mem: ramoops_region@a1810000 {
+  compatible = "removed-dma-pool";
+  no-map;
+  reg = <0 0xa1810000 0 0x200000>;
+ };
+
+ alt_ramoops_mem: alt_ramoops_region@a1a10000 {
+  compatible = "removed-dma-pool";
+  no-map;
+  reg = <0 0xa1a10000 0 0x200000>;
+ };
+
+ ramoops_meta_mem: ramoops_meta_region@a1c10000 {
+  compatible = "removed-dma-pool";
+  no-map;
+  reg = <0 0xa1c10000 0 0x1000>;
+ };
+
+};
+# 42 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-thermal.dtsi" 1
+
+&bcl_sensor {
+ label = "bcl_sensor";
+};
+
+&pm8998_vadc {
+ chan@83 {
+  label = "vph_pwr";
+  reg = <0x83>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <1>;
+  qcom,calibration-type = "absolute";
+  qcom,scale-function = <0>;
+  qcom,hw-settle-time = <0>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@85 {
+  label = "vcoin";
+  reg = <0x85>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <1>;
+  qcom,calibration-type = "absolute";
+  qcom,scale-function = <0>;
+  qcom,hw-settle-time = <0>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@4c {
+  label = "xo_therm";
+  reg = <0x4c>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <4>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@4d {
+  label = "sdm_therm";
+  reg = <0x4d>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@4e {
+  label = "quiet_therm";
+  reg = <0x4e>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@4f {
+  label = "fps_therm";
+  reg = <0x4f>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+
+ chan@51 {
+  label = "pmi_therm";
+  reg = <0x51>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+};
+
+&pm8998_adc_tm {
+ chan@83 {
+  label = "vph_pwr";
+  reg = <0x83>;
+  qcom,pre-div-channel-scaling = <1>;
+  qcom,calibration-type = "absolute";
+  qcom,scale-function = <0>;
+  qcom,hw-settle-time = <0>;
+  qcom,btm-channel-number = <0x60>;
+ };
+
+ chan@4c {
+  label = "xo_therm";
+  reg = <0x4c>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <4>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x68>;
+  qcom,thermal-node;
+ };
+
+ chan@4d {
+  label = "sdm_therm";
+  reg = <0x4d>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x70>;
+  qcom,thermal-node;
+ };
+
+ chan@4e {
+  label = "quiet_therm";
+  reg = <0x4e>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x78>;
+  qcom,thermal-node;
+ };
+
+ chan@4f {
+  label = "fps_therm";
+  reg = <0x4f>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x98>;
+  qcom,thermal-node;
+ };
+
+ chan@51 {
+  label = "pmi_therm";
+  reg = <0x51>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x88>;
+  qcom,thermal-node;
+ };
+};
+
+&low_vbat {
+ temperature = <3200>;
+ hysteresis = <100>;
+ type = "passive";
+};
+
+&low_soc {
+ temperature = <10>;
+ hysteresis = <0>;
+ type = "passive";
+};
+
+&ibat_high {
+ temperature = <5000>;
+ hysteresis = <200>;
+ type = "passive";
+};
+
+&thermal_zones {
+ vbat {
+  polling-delay-passive = <100>;
+  cooling-maps {
+   vbat_cpu4 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU4 18 18>;
+   };
+   vbat_cpu5 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU5 18 18>;
+   };
+   vbat_map6 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU6 18 18>;
+   };
+   vbat_map7 {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&CPU7 18 18>;
+   };
+   mnh_thermal {
+    trip = <&low_vbat>;
+    cooling-device =
+     <&mnh_thermal 3 3>;
+   };
+  };
+ };
+ soc {
+  polling-delay-passive = <0>;
+  cooling-maps {
+   soc_cpu4 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU4 18 18>;
+   };
+   soc_cpu5 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU5 18 18>;
+   };
+   soc_map6 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU6 18 18>;
+   };
+   soc_map7 {
+    trip = <&low_soc>;
+    cooling-device =
+     <&CPU7 18 18>;
+   };
+  };
+ };
+ ibat-high {
+  polling-delay-passive = <100>;
+  cooling-maps {
+   ibat_cpu4 {
+    trip = <&ibat_high>;
+    cooling-device =
+     <&CPU4 18 18>;
+   };
+   ibat_cpu5 {
+    trip = <&ibat_high>;
+    cooling-device =
+     <&CPU5 18 18>;
+   };
+   ibat_cpu6 {
+    trip = <&ibat_high>;
+    cooling-device =
+     <&CPU6 18 18>;
+   };
+   ibat_cpu7 {
+    trip = <&ibat_high>;
+    cooling-device =
+     <&CPU7 18 18>;
+   };
+  };
+ };
+
+ xo-therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4c>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+
+ sdm-therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4d>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+
+ quiet-therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4e>;
+  thermal-governor = "user_space";
+  disable-thermal-zone;
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+
+ backup-charge {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4f>;
+  thermal-governor = "step_wise";
+  disable-thermal-zone;
+
+  trips {
+   batt_charging_lv1: batt-charging_lv1 {
+    temperature = <39000>;
+    hysteresis = <1000>;
+    type = "passive";
+   };
+   batt_charging_lv2: batt-charging_lv2 {
+    temperature = <41000>;
+    hysteresis = <1000>;
+    type = "passive";
+   };
+   batt_charging_lv3: batt-charging_lv3 {
+    temperature = <43000>;
+    hysteresis = <1000>;
+    type = "passive";
+   };
+   batt_charging_lv4: batt-charging_lv4 {
+    temperature = <48000>;
+    hysteresis = <1000>;
+    type = "passive";
+   };
+  };
+  cooling-maps {
+   charging_cdev_lv1 {
+    trip = <&batt_charging_lv1>;
+    cooling-device = <&pmi8998_charger 1 1>;
+   };
+   charging_cdev_lv2 {
+    trip = <&batt_charging_lv2>;
+    cooling-device = <&pmi8998_charger 2 2>;
+   };
+   charging_cdev_lv3 {
+    trip = <&batt_charging_lv3>;
+    cooling-device = <&pmi8998_charger 3 3>;
+   };
+   charging_cdev_lv4 {
+    trip = <&batt_charging_lv4>;
+    cooling-device = <&pmi8998_charger 4 4>;
+   };
+  };
+ };
+
+ fps-therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4f>;
+  thermal-governor = "user_space";
+  disable-thermal-zone;
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+   shutdown-config {
+    temperature = <59000>;
+    hysteresis = <1000>;
+    type = "critical";
+   };
+  };
+ };
+
+ fps-therm-monitor {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x4f>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+
+ pmi_therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x51>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+
+ aoss0-usr {
+  status = "disabled";
+ };
+
+ aoss1-usr {
+  status = "disabled";
+ };
+
+ camera-usr {
+  status = "disabled";
+ };
+
+ compute-hvx-usr {
+  status = "disabled";
+ };
+
+ ddr-usr {
+  status = "disabled";
+ };
+
+ gold-virt-max-step {
+  status = "disabled";
+ };
+
+ gpu-virt-max-step {
+  status = "disabled";
+ };
+
+ kryo-l3-0-usr {
+  status = "disabled";
+ };
+
+ kryo-l3-1-usr {
+  status = "disabled";
+ };
+
+ mdm-core-usr {
+  status = "disabled";
+ };
+
+ mdm-dsp-usr {
+  status = "disabled";
+ };
+
+ mmss-usr {
+  status = "disabled";
+ };
+
+ silv-virt-max-step {
+  status = "disabled";
+ };
+
+ wlan-usr {
+  status = "disabled";
+ };
+};
+# 43 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-usb.dtsi" 1
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/usb/typec.h" 1
+# 3 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-usb.dtsi" 2
+
+&vendor {
+ extcon_usb1: extcon_usb1 {
+  compatible = "linux,extcon-usb-gpio";
+  vbus-gpio = <&pmi8998_gpios 8 0>;
+
+  pinctrl-names = "default";
+  pinctrl-0 = <&usb2_vbus_det_default>;
+ };
+};
+
+&ext_5v_boost {
+ status = "ok";
+};
+
+&usb0 {
+ google,switch-vbus = <250>;
+};
+
+&tlmm {
+
+
+
+
+
+
+ atest_usb13_active: atest_usb13_active {
+  mux {
+   pins = "gpio104";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio104";
+   drive-strength = <12>;
+   bias-pull-up;
+  };
+ };
+ atest_usb13_suspend: atest_usb13_suspend {
+  mux {
+   pins = "gpio104";
+   function = "gpio";
+  };
+  config {
+   pins = "gpio104";
+   bias-pull-down;
+   drive-strength = <2>;
+  };
+ };
+};
+
+&qusb_phy0 {
+
+ pinctrl-names = "atest_usb13_suspend", "atest_usb13_active";
+ pinctrl-0 = <&atest_usb13_suspend>;
+ pinctrl-1 = <&atest_usb13_active>;
+
+ qcom,qusb-phy-reg-offset =
+  <0x240
+   0x1a0
+   0x210
+   0x230
+   0x0a8
+   0x254
+   0x194
+   0x198
+   0x228
+   0x22c
+   0x27c>;
+
+ qcom,qusb-phy-init-seq =
+
+   <0x23 0x210
+    0x03 0x04
+    0x7c 0x18c
+    0x80 0x2c
+    0x0a 0x184
+    0x19 0xb4
+    0x40 0x194
+    0x20 0x198
+    0x21 0x214
+    0x00 0x220
+    0x58 0x224
+    0x75 0x240
+    0x29 0x244
+    0xca 0x248
+    0x04 0x24c
+    0x03 0x250
+    0x00 0x23c
+    0x22 0x210>;
+
+ google,skip_efuse_reg;
+};
+
+&pmi8998_pdphy {
+ goog,src-pdo = <0x0 5000 900 0>;
+ goog,snk-pdo = <0x0 5000 3000 0>,
+         <0x0 9000 3000 0>;
+ goog,max-snk-mv = <9000>;
+ goog,max-snk-ma = <3000>;
+ goog,max-snk-mw = <27000>;
+ goog,op-snk-mw = <7600>;
+ goog,port-type = <0x2>;
+ goog,default-role = <0x0>;
+ goog,try-role-hw;
+
+ goog,wlc-supported;
+};
+# 44 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-battery.dtsi" 1
+
+&qupv3_se10_i2c {
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/smb1355.dtsi" 1
+# 15 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/../qcom/smb1355.dtsi"
+smb1355_0: qcom,smb1355@8 {
+ compatible = "qcom,i2c-pmic";
+ reg = <0x8>;
+ #address-cells = <1>;
+ #size-cells = <0>;
+ interrupt-parent = <&spmi_bus>;
+ interrupts = <0x0 0xd1 0x0 8>;
+ interrupt_names = "smb1355_0";
+ interrupt-controller;
+ #interrupt-cells = <3>;
+ qcom,periph-map = <0x10 0x12 0x13 0x16>;
+
+ smb1355_revid_0: qcom,revid@100 {
+  compatible = "qcom,qpnp-revid";
+  reg = <0x100 0x100>;
+ };
+
+ smb1355_charger_0: qcom,smb1355-charger@1000 {
+  compatible = "qcom,smb1355";
+  qcom,pmic-revid = <&smb1355_revid_0>;
+  reg = <0x1000 0x700>;
+  #address-cells = <1>;
+  #size-cells = <1>;
+  interrupt-parent = <&smb1355_0>;
+  status = "disabled";
+
+  io-channels = <&pmi8998_rradc 2>,
+         <&pmi8998_rradc 12>;
+  io-channel-names = "charger_temp",
+       "charger_temp_max";
+
+  qcom,chgr@1000 {
+   reg = <0x1000 0x100>;
+   interrupts = <0x10 0x1 1>;
+   interrupt-names = "chg-state-change";
+  };
+
+  qcom,chgr-misc@1600 {
+   reg = <0x1600 0x100>;
+   interrupts = <0x16 0x1 1>,
+         <0x16 0x6 1>;
+   interrupt-names = "wdog-bark",
+       "temperature-change";
+  };
+ };
+};
+
+smb1355_1: qcom,smb1355@c {
+ compatible = "qcom,i2c-pmic";
+ reg = <0xc>;
+ #address-cells = <1>;
+ #size-cells = <0>;
+ interrupt-parent = <&spmi_bus>;
+ interrupts = <0x0 0xd1 0x0 8>;
+ interrupt_names = "smb1355_1";
+ interrupt-controller;
+ #interrupt-cells = <3>;
+ qcom,periph-map = <0x10 0x12 0x13 0x16>;
+
+ smb1355_revid_1: qcom,revid@100 {
+  compatible = "qcom,qpnp-revid";
+  reg = <0x100 0x100>;
+ };
+
+ smb1355_charger_1: qcom,smb1355-charger@1000 {
+  compatible = "qcom,smb1355";
+  qcom,pmic-revid = <&smb1355_revid_1>;
+  reg = <0x1000 0x700>;
+  #address-cells = <1>;
+  #size-cells = <1>;
+  interrupt-parent = <&smb1355_1>;
+  status = "disabled";
+
+  io-channels = <&pmi8998_rradc 2>,
+         <&pmi8998_rradc 12>;
+  io-channel-names = "charger_temp",
+       "charger_temp_max";
+
+  qcom,chgr@1000 {
+   reg = <0x1000 0x100>;
+   interrupts = <0x10 0x1 1>;
+   interrupt-names = "chg-state-change";
+  };
+
+  qcom,chgr-misc@1600 {
+   reg = <0x1600 0x100>;
+   interrupts = <0x16 0x1 1>,
+         <0x16 0x6 1>;
+   interrupt-names = "wdog-bark",
+       "temperature-change";
+  };
+ };
+};
+# 4 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-battery.dtsi" 2
+};
+
+&smb1355_charger_0 {
+ status = "ok";
+};
+
+&smb1355_charger_1 {
+ status = "ok";
+};
+
+&pmi8998_pdphy {
+ vbus-supply = <&smb2_vbus>;
+ ext-vbus-supply = <&ext_5v_boost>;
+};
+
+&pmi8998_charger {
+ google,boost_to_5_1V;
+ qcom,dc-icl-ua = <1100000>;
+ google,batt_psy_is_bms;
+ google,usb-port-tz-name = "usbc-therm-monitor";
+ google,wlc-thermal-mitigation = <1100000 500000 250000 110000>;
+ google,low-batt-threshold = <2>;
+ qcom,hvdcp-disable;
+};
+
+&pmi8998_fg {
+ qcom,battery-thermal-coefficients = [d8 50 ff];
+ qcom,cl-max-decrement = <5>;
+ qcom,hold-soc-while-full;
+ qcom,linearize-soc;
+ qcom,fg-cutoff-voltage = <3300>;
+ qcom,fg-empty-voltage = <2600>;
+ qcom,fg-jeita-hyst-temp = <1>;
+ qcom,fg-jeita-thresholds = <0 0 55 55>;
+ qcom,fg-force-load-profile;
+ google,fg-soc-irq-disable;
+ google,batt_psy_is_bms;
+};
+
+&tlmm {
+ fg {
+  fg_int_default: fg_int_default {
+   mux {
+
+    pins = "gpio62";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio62";
+    drive-strength = <2>;
+    bias-pull-up;
+   };
+  };
+
+ };
+};
+
+
+&qupv3_se12_i2c {
+ status = "ok";
+ max1720x_fg: max1720x@36 {
+  compatible = "maxim,max1720x";
+  reg-names = "m5db", "nvram";
+  reg = <0x36 0x0b>;
+  interrupt-parent = <&tlmm>;
+  interrupt-names = "fg_irq";
+  interrupts = <62 8>;
+  fg,irq-gpio = <&tlmm 62 0x00>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&fg_int_default>;
+
+  io-channels = <&pmi8998_rradc 0>;
+  io-channel-names = "rradc_batt_id";
+  maxim,batt-id-range-pct = <15>;
+
+  maxim,nconvgcfg-temp-hysteresis = <10>;
+  maxim,nconvgcfg-temp-limits = /bits/ 16
+      <(-70) (-45) (-20) (-3) 14 30 55 80
+       96 113 130 155 180 230>;
+  maxim,nconvgcfg-values = /bits/ 16
+      <0xe7c0 0xd7c0 0xc7c0 0xb7c0 0xa740 0x9740 0x86c0 0x7640
+       0x65c0 0x54c0 0x4440 0x3340 0x2240 0x1140>;
+ };
+};
+
+&soc {
+ google_charger: google,charger {
+  compatible = "google,charger";
+  google,chg-power-supply = "battery";
+  google,bat-power-supply = "maxfg";
+  google,fv-uv-margin-dpct = <1020>;
+  google,chg-update-interval = <30000>;
+  google,chg-temp-limits = <0 100 200 420 460 480 550>;
+  google,chg-cv-limits = <4200000 4300000 4400000>;
+  google,chg-cc-limits = <
+    30 10 0
+    50 30 30
+   100 70 50
+    80 50 50
+    50 50 0
+    30 0 0
+  >;
+  google,chg-cc-tolerance = <25>;
+
+
+  google,bd-resume-abs-temp = <280>;
+  google,bd-resume-soc = <50>;
+  google,bd-resume-time = <14400>;
+  google,bd-resume-temp = <290>;
+  google,bd-trigger-time = <21600>;
+  google,bd-trigger-temp = <350>;
+  google,bd-trigger-voltage = <4270000>;
+  google,bd-recharge-voltage = <4250000>;
+  google,bd-drainto-soc = <80>;
+  google,bd-recharge-soc = <79>;
+ };
+
+ google_overheat_mitigation: google,overheat_mitigation {
+  compatible = "google,overheat_mitigation";
+  google,port-overheat-work-interval = <1000>;
+  google,accessory-monitoring-period = <150>;
+
+  google,polling-freq = <3>;
+ };
+};
+
+&bcl_sensor {
+ google,bat-power-supply = "maxfg";
+};
+# 45 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-common.dtsi" 2
+
+&vendor {
+ bluetooth: bt_wcn3990 {
+  compatible = "qca,wcn3990";
+  qca,bt-vdd-io-supply = <&pm8998_s3>;
+  qca,bt-vdd-xtal-supply = <&pm8998_s5>;
+  qca,bt-vdd-core-supply = <&pm8998_l7>;
+  qca,bt-vdd-pa-supply = <&pm8998_l17>;
+  qca,bt-vdd-ldo-supply = <&pm8998_l25>;
+
+  qca,bt-vdd-io-voltage-level = <1352000 1352000>;
+  qca,bt-vdd-xtal-voltage-level = <2040000 2040000>;
+  qca,bt-vdd-core-voltage-level = <1800000 1800000>;
+  qca,bt-vdd-pa-voltage-level = <1304000 1304000>;
+  qca,bt-vdd-ldo-voltage-level = <3312000 3312000>;
+
+  qca,bt-vdd-io-current-level = <1>;
+  qca,bt-vdd-xtal-current-level = <1>;
+  qca,bt-vdd-core-current-level = <1>;
+  qca,bt-vdd-pa-current-level = <1>;
+  qca,bt-vdd-ldo-current-level = <1>;
+ };
+};
+
+&soc {
+ gpio_keys {
+  compatible = "gpio-keys";
+  label = "gpio-keys";
+
+  pinctrl-names = "default";
+  pinctrl-0 = <&key_vol_up_default>;
+
+  vol_up {
+   label = "volume_up";
+   gpios = <&pm8998_gpios 6 1>;
+   linux,input-type = <1>;
+   linux,code = <115>;
+   gpio-key,wakeup;
+   debounce-interval = <15>;
+   linux,can-disable;
+  };
+ };
+
+ qcom,msm-imem@146bf000 {
+  restart_info@a94 {
+   compatible = "msm-imem-restart_info";
+   reg = <0xa94 100>;
+  };
+ };
+
+ modemsmem {
+  compatible = "modemsmem";
+ };
+
+ bootloader_log {
+  compatible = "qcom,bldr_log";
+  reg = <0xA1800000 0x5C00>, <0xA1806000 0x5C00>;
+  reg-names = "bl_log", "bl_old_log";
+  memory-region = <&debug_info>;
+ };
+
+ bootloader_kinfo {
+  compatible = "bootloader_kinfo";
+  reg = <0xA1805C00 0x3C0>;
+  reg-names = "kinfo";
+  memory-region = <&debug_info>;
+ };
+
+ ramoops {
+  compatible = "ramoops";
+  memory-region = <&ramoops_mem>;
+  alt-memory-region = <&alt_ramoops_mem>;
+  record-size = <0x20000>;
+  console-size = <0x100000>;
+  pmsg-size = <0x80000>;
+ };
+
+ access_ramoops@0 {
+  compatible = "access_ramoops";
+  label = "metadata";
+  memory-region = <&ramoops_meta_mem>;
+ };
+
+ access_ramoops@1 {
+  compatible = "access_ramoops";
+  label = "ramoops";
+  memory-region = <&alt_ramoops_mem>;
+ };
+
+ keydebug {
+  compatible = "keydebug";
+  key_down_delay = <7000>;
+  keys_down = <116>;
+  dbg_fn_delay = <2500>;
+ };
+};
+
+&ufsphy_mem {
+ compatible = "qcom,ufs-phy-qmp-v3";
+
+ vdda-phy-supply = <&pm8998_l1>;
+ vdda-pll-supply = <&pm8998_l26>;
+ vdda-phy-max-microamp = <62900>;
+ vdda-pll-max-microamp = <18300>;
+
+ status = "ok";
+};
+
+&ufshc_mem {
+ vdd-hba-supply = <&ufs_phy_gdsc>;
+ vdd-hba-fixed-regulator;
+ vcc-supply = <&pm8998_l20>;
+ vcc-voltage-level = <2950000 2960000>;
+ vccq2-supply = <&pm8998_s4>;
+ vcc-max-microamp = <600000>;
+ vccq2-max-microamp = <600000>;
+
+ qcom,vddp-ref-clk-supply = <&pm8998_l2>;
+ qcom,vddp-ref-clk-max-microamp = <100>;
+
+ status = "ok";
+};
+
+&pcie0 {
+ status = "disabled";
+};
+
+&pmi8998_switch1 {
+ pinctrl-names = "led_enable", "led_disable";
+ pinctrl-0 = <&flash_led3_front_en>;
+ pinctrl-1 = <&flash_led3_front_dis>;
+};
+
+&qupv3_se9_2uart {
+ status = "ok";
+};
+
+&qupv3_se7_spi {
+ status = "ok";
+ qcom,disable-autosuspend;
+};
+
+&qupv3_se3_i2c {
+ status = "ok";
+};
+
+&qupv3_se10_i2c {
+ status = "ok";
+};
+
+&qupv3_se6_4uart {
+ status = "ok";
+};
+
+&thermal_zones {
+ vbat_too_low {
+  trips {
+   low-vbat {
+    temperature = <2800>;
+   };
+  };
+ };
+};
+
+&spmi_bus {
+ qcom,pm8998@0 {
+  qcom,power-on@800 {
+   interrupts = <0x0 0x8 0x0 0>,
+         <0x0 0x8 0x1 0>,
+         <0x0 0x8 0x3 0>,
+         <0x0 0x8 0x4 0>,
+         <0x0 0x8 0x5 0>;
+   interrupt-names = "kpdpwr", "resin", "kpdpwr-bark",
+     "resin-bark", "kpdpwr-resin-bark";
+   qcom,pon_1 {
+    qcom,use-bark;
+   };
+  };
+ };
+};
+
+
+&msm_poweroff {
+ qcom,force-warm-reboot-on-thermal-shutdown;
+};
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi" 2
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-touch.dtsi" 1
+# 17 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-touch.dtsi"
+&pm8998_l19 {
+ regulator-min-microvolt = <3300000>;
+ regulator-max-microvolt = <3300000>;
+ qcom,init-voltage = <3300000>;
+ status = "okay";
+};
+
+&pm8998_l14 {
+ regulator-min-microvolt = <1800000>;
+ regulator-max-microvolt = <1800000>;
+ qcom,init-voltage = <1800000>;
+ qcom,init-mode = <4>;
+ status = "okay";
+};
+
+&rpmh_regulator_ldoa14 {
+ qcom,supported-modes = <4>;
+};
+
+
+
+
+
+&qupv3_se2_i2c {
+ status = "ok";
+ qcom,clk-freq-out = <1000000>;
+
+ st_fts@49 {
+  status = "ok";
+  compatible = "st,fts";
+  reg = <0x49>;
+  interrupt-parent = <&tlmm>;
+  interrupts = <125 8>;
+  vdd-supply = <&pm8998_l14>;
+  avdd-supply = <&pm8998_l19>;
+  pinctrl-names = "pmx_ts_active", "pmx_ts_suspend";
+  pinctrl-0 = <&ts_int_active &ts_reset_active>;
+  pinctrl-1 = <&ts_int_suspend>;
+
+  st,irq-gpio = <&tlmm 125 0>;
+  st,reset-gpio = <&tlmm 99 0>;
+  st,switch_gpio = <&tlmm 136 0>;
+  st,max-coords = <1079 2159>;
+  st,regulator_dvdd = "vdd";
+  st,regulator_avdd = "avdd";
+
+ };
+};
+# 16 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-audio.dtsi" 1
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/include/dt-bindings/clock/qcom,audio-ext-clk.h" 1
+# 4 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-audio.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-audio-overlay.dtsi" 1
+# 14 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-audio-overlay.dtsi"
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-wcd.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-wcd.dtsi"
+&slim_aud {
+ tavil_codec {
+  wcd: wcd_pinctrl@5 {
+   compatible = "qcom,wcd-pinctrl";
+   qcom,num-gpios = <5>;
+   gpio-controller;
+   #gpio-cells = <2>;
+
+   us_euro_sw_wcd_active: us_euro_sw_wcd_active {
+    mux {
+     pins = "gpio1";
+    };
+
+    config {
+     pins = "gpio1";
+     output-high;
+    };
+   };
+
+   us_euro_sw_wcd_sleep: us_euro_sw_wcd_sleep {
+    mux {
+     pins = "gpio1";
+    };
+
+    config {
+     pins = "gpio1";
+     output-low;
+    };
+   };
+
+   spkr_1_wcd_en_active: spkr_1_wcd_en_active {
+    mux {
+     pins = "gpio2";
+    };
+
+    config {
+     pins = "gpio2";
+     output-high;
+    };
+   };
+
+   spkr_1_wcd_en_sleep: spkr_1_wcd_en_sleep {
+    mux {
+     pins = "gpio2";
+    };
+
+    config {
+     pins = "gpio2";
+     input-enable;
+    };
+   };
+
+   spkr_2_wcd_en_active: spkr_2_sd_n_active {
+    mux {
+     pins = "gpio3";
+    };
+
+    config {
+     pins = "gpio3";
+     output-high;
+    };
+   };
+
+   spkr_2_wcd_en_sleep: spkr_2_sd_n_sleep {
+    mux {
+     pins = "gpio3";
+    };
+
+    config {
+     pins = "gpio3";
+     input-enable;
+    };
+   };
+
+   hph_en0_wcd_active: hph_en0_wcd_active {
+    mux {
+     pins = "gpio4";
+    };
+
+    config {
+     pins = "gpio4";
+     output-high;
+    };
+   };
+
+   hph_en0_wcd_sleep: hph_en0_wcd_sleep {
+    mux {
+     pins = "gpio4";
+    };
+
+    config {
+     pins = "gpio4";
+     output-low;
+    };
+   };
+
+   hph_en1_wcd_active: hph_en1_wcd_active {
+    mux {
+     pins = "gpio5";
+    };
+
+    config {
+     pins = "gpio5";
+     output-high;
+    };
+   };
+
+   hph_en1_wcd_sleep: hph_en1_wcd_sleep {
+    mux {
+     pins = "gpio5";
+    };
+
+    config {
+     pins = "gpio5";
+     output-low;
+    };
+   };
+  };
+
+  wsa_spkr_wcd_sd1: msm_cdc_pinctrll {
+        compatible = "qcom,msm-cdc-pinctrl";
+        pinctrl-names = "aud_active", "aud_sleep";
+        pinctrl-0 = <&spkr_1_wcd_en_active>;
+        pinctrl-1 = <&spkr_1_wcd_en_sleep>;
+  };
+
+  wsa_spkr_wcd_sd2: msm_cdc_pinctrlr {
+        compatible = "qcom,msm-cdc-pinctrl";
+        pinctrl-names = "aud_active", "aud_sleep";
+        pinctrl-0 = <&spkr_2_wcd_en_active>;
+        pinctrl-1 = <&spkr_2_wcd_en_sleep>;
+  };
+
+  tavil_us_euro_sw: msm_cdc_pinctrl_us_euro_sw {
+        compatible = "qcom,msm-cdc-pinctrl";
+        pinctrl-names = "aud_active", "aud_sleep";
+        pinctrl-0 = <&us_euro_sw_wcd_active>;
+        pinctrl-1 = <&us_euro_sw_wcd_sleep>;
+  };
+
+  tavil_hph_en0: msm_cdc_pinctrl_hph_en0 {
+        compatible = "qcom,msm-cdc-pinctrl";
+        pinctrl-names = "aud_active", "aud_sleep";
+        pinctrl-0 = <&hph_en0_wcd_active>;
+        pinctrl-1 = <&hph_en0_wcd_sleep>;
+  };
+
+  tavil_hph_en1: msm_cdc_pinctrl_hph_en1 {
+        compatible = "qcom,msm-cdc-pinctrl";
+        pinctrl-names = "aud_active", "aud_sleep";
+        pinctrl-0 = <&hph_en1_wcd_active>;
+        pinctrl-1 = <&hph_en1_wcd_sleep>;
+  };
+ };
+};
+# 15 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-audio-overlay.dtsi" 2
+
+
+&soc {
+ wcd_usbc_analog_en1_gpio: msm_cdc_pinctrl@49 {
+  compatible = "qcom,msm-cdc-pinctrl";
+  pinctrl-names = "aud_active", "aud_sleep";
+  pinctrl-0 = <&wcd_usbc_analog_en1_active>;
+  pinctrl-1 = <&wcd_usbc_analog_en1_idle>;
+ };
+
+ wcd9xxx_intc: wcd9xxx-irq {
+  status = "ok";
+  compatible = "qcom,wcd9xxx-irq";
+  interrupt-controller;
+  #interrupt-cells = <1>;
+  interrupt-parent = <&tlmm>;
+  qcom,gpio-connect = <&tlmm 54 0>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&wcd_intr_default>;
+ };
+
+ clock_audio_lnbb: audio_ext_clk_lnbb {
+  status = "ok";
+  compatible = "qcom,audio-ref-clk";
+  clock-names = "osr_clk";
+  clocks = <&clock_rpmh 2>;
+  qcom,node_has_rpm_clock;
+  #clock-cells = <1>;
+ };
+
+ wcd_rst_gpio: msm_cdc_pinctrl@64 {
+  compatible = "qcom,msm-cdc-pinctrl";
+  qcom,cdc-rst-n-gpio = <&tlmm 64 0>;
+  pinctrl-names = "aud_active", "aud_sleep";
+  pinctrl-0 = <&cdc_reset_active>;
+  pinctrl-1 = <&cdc_reset_sleep>;
+ };
+
+ qocm,wcd-dsp-glink {
+  compatible = "qcom,wcd-dsp-glink";
+ };
+
+ qcom,wcd-dsp-mgr {
+  compatible = "qcom,wcd-dsp-mgr";
+  qcom,wdsp-components = <&wcd934x_cdc 0>,
+           <&wcd_spi_0 1>,
+           <&glink_spi_xprt_wdsp 2>;
+  qcom,img-filename = "cpe_9340";
+ };
+};
+
+&slim_aud {
+ wcd934x_cdc: tavil_codec {
+  compatible = "qcom,tavil-slim-pgd";
+  elemental-addr = [00 01 50 02 17 02];
+
+  interrupt-parent = <&wcd9xxx_intc>;
+  interrupts = <0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+         17 18 19 20 21 22 23 24 25 26 27 28 29
+         30 31>;
+
+  qcom,wcd-rst-gpio-node = <&wcd_rst_gpio>;
+
+  clock-names = "wcd_clk";
+  clocks = <&clock_audio_lnbb 0>;
+
+  cdc-vdd-buck-supply = <&pm8998_s4>;
+  qcom,cdc-vdd-buck-voltage = <1800000 1800000>;
+  qcom,cdc-vdd-buck-current = <650000>;
+
+  cdc-buck-sido-supply = <&pm8998_s4>;
+  qcom,cdc-buck-sido-voltage = <1800000 1800000>;
+  qcom,cdc-buck-sido-current = <250000>;
+
+  cdc-vdd-tx-h-supply = <&pm8998_s4>;
+  qcom,cdc-vdd-tx-h-voltage = <1800000 1800000>;
+  qcom,cdc-vdd-tx-h-current = <25000>;
+
+  cdc-vdd-rx-h-supply = <&pm8998_s4>;
+  qcom,cdc-vdd-rx-h-voltage = <1800000 1800000>;
+  qcom,cdc-vdd-rx-h-current = <25000>;
+
+  cdc-vddpx-1-supply = <&pm8998_s4>;
+  qcom,cdc-vddpx-1-voltage = <1800000 1800000>;
+  qcom,cdc-vddpx-1-current = <10000>;
+
+  qcom,cdc-static-supplies = "cdc-vdd-buck",
+        "cdc-buck-sido",
+        "cdc-vdd-tx-h",
+        "cdc-vdd-rx-h",
+        "cdc-vddpx-1";
+
+  qcom,cdc-micbias1-mv = <1800>;
+  qcom,cdc-micbias2-mv = <1800>;
+  qcom,cdc-micbias3-mv = <1800>;
+  qcom,cdc-micbias4-mv = <1800>;
+
+  qcom,cdc-mclk-clk-rate = <9600000>;
+  qcom,cdc-slim-ifd = "tavil-slim-ifd";
+  qcom,cdc-slim-ifd-elemental-addr = [00 00 50 02 17 02];
+  qcom,cdc-dmic-sample-rate = <4800000>;
+  qcom,cdc-mad-dmic-rate = <600000>;
+
+  qcom,wdsp-cmpnt-dev-name = "tavil_codec";
+
+  wcd_spi_0: wcd_spi {
+   compatible = "qcom,wcd-spi-v2";
+   qcom,master-bus-num = <0>;
+   qcom,chip-select = <0>;
+   qcom,max-frequency = <24000000>;
+   qcom,mem-base-addr = <0x100000>;
+
+   wcd_spi_ac {
+    compatible = "qcom,wcd-spi-ac";
+   };
+  };
+
+ };
+};
+# 5 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1c1-audio.dtsi" 2
+
+&aliases {
+ spi0 = "/soc/spi@89c000";
+};
+
+&pm8998_gpios {
+ gpio@cc00 {
+  status = "disabled";
+ };
+};
+
+&tlmm {
+ cs35l36_pins {
+  cs35l36_reset_top: cs35l36_reset_top {
+   mux {
+    pins = "gpio75";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio75";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+
+  cs35l36_irq_top: cs35l36_irq_top {
+   mux {
+    pins = "gpio40";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio40";
+    drive-strength = <2>;
+    bias-pull-up;
+   };
+  };
+  cs35l36_reset_bottom: cs35l36_reset_bottom {
+   mux {
+    pins = "gpio112";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio112";
+    drive-strength = <2>;
+    bias-disable;
+   };
+  };
+
+  cs35l36_irq_bottom: cs35l36_irq_bottom {
+   mux {
+    pins = "gpio115";
+    function = "gpio";
+   };
+
+   config {
+    pins = "gpio115";
+    drive-strength = <2>;
+    bias-pull-up;
+   };
+  };
+ };
+};
+
+&clock_audio_lnbb {
+ clocks = <&clock_rpmh 4>;
+};
+
+&wcd_usbc_analog_en1_gpio {
+ status = "disabled";
+};
+
+&snd_934x {
+ qcom,model = "sdm845-tavil-b1-snd-card";
+ qcom,audio-routing =
+  "AIF4 VI", "MCLK",
+  "RX_BIAS", "MCLK",
+  "MADINPUT", "MCLK",
+  "AMIC1", "Flicker Mic",
+  "DMIC0", "MIC BIAS1",
+  "MIC BIAS1", "Digital Mic0",
+  "DMIC3", "MIC BIAS3",
+  "MIC BIAS3", "Digital Mic1",
+  "DMIC4", "MIC BIAS4",
+  "MIC BIAS4", "Digital Mic2";
+
+ qcom,msm-mbhc-hphl-swh = <0>;
+ qcom,msm-mbhc-gnd-swh = <0>;
+ qcom,wsa-max-devs = <0>;
+ qcom,msm-mbhc-hs-mic-max-threshold-mv = <1700>;
+ qcom,msm-mbhc-hs-mic-min-threshold-mv = <50>;
+ qcom,tavil-mclk-clk-freq = <9600000>;
+
+ asoc-codec = <&stub_codec>, <&ext_disp_audio_codec>;
+ asoc-codec-names = "msm-stub-codec.1",
+      "msm-ext-disp-audio-codec-rx";
+
+ pinctrl-names = "quat-mi2s-active", "quat-mi2s-sleep",
+   "quat-tdm-active", "quat-tdm-sleep";
+ pinctrl-0 = <&quat_mi2s_active &quat_mi2s_sd0_active
+    &quat_mi2s_sd1_active>;
+ pinctrl-1 = <&quat_mi2s_sleep &quat_mi2s_sd0_sleep
+    &quat_mi2s_sd1_sleep>;
+ pinctrl-2 = <&quat_tdm_active &quat_tdm_dout_active
+    &quat_tdm_din_active>;
+ pinctrl-3 = <&quat_tdm_sleep &quat_tdm_dout_sleep
+    &quat_tdm_din_sleep>;
+};
+
+&msm_dai_tdm_quat_rx {
+ qcom,msm-cpudai-tdm-clk-rate = <12288000>;
+ qcom,msm-cpudai-tdm-sync-mode = <0>;
+ qcom,msm-cpudai-tdm-invert-sync = <0>;
+};
+&dai_quat_tdm_rx_0 {
+ qcom,msm-cpudai-tdm-header-start-offset = <0>;
+ qcom,msm-cpudai-tdm-header-width = <2>;
+ qcom,msm-cpudai-tdm-header-num-frame-repeat = <8>;
+};
+
+&msm_dai_tdm_quat_tx {
+ qcom,msm-cpudai-tdm-clk-rate = <12288000>;
+ qcom,msm-cpudai-tdm-sync-mode = <0>;
+ qcom,msm-cpudai-tdm-invert-sync = <0>;
+};
+
+&soc {
+ msm_cirrus_playback {
+  compatible = "cirrus,msm-cirrus-playback";
+  usecase-names = "Playback";
+
+
+  cirrus,top-speaker-impedance = <11189>;
+
+
+  cirrus,top-speaker-tolerance = <10>;
+
+
+  cirrus,top-speaker-mean = <10741>;
+
+
+  cirrus,bottom-speaker-impedance = <9510>;
+
+
+  cirrus,bottom-speaker-tolerance = <10>;
+
+
+  cirrus,bottom-speaker-mean = <9314>;
+ };
+};
+
+&routing {
+ qcom,msm-pcm-config = "b1";
+};
+
+
+&dai_quat_tdm_rx_0 {
+ pinctrl-names = "default", "sleep";
+ pinctrl-2 = <&quat_tdm_active &quat_tdm_dout_active
+   &quat_tdm_din_active>;
+ pinctrl-3 = <&quat_tdm_sleep &quat_tdm_dout_sleep
+   &quat_tdm_din_sleep>;
+};
+
+&dai_quat_tdm_tx_0 {
+ pinctrl-names = "default", "sleep";
+ pinctrl-2 = <&quat_tdm_active &quat_tdm_dout_active
+   &quat_tdm_din_active>;
+ pinctrl-3 = <&quat_tdm_sleep &quat_tdm_dout_sleep
+   &quat_tdm_din_sleep>;
+};
+
+
+&qupv3_se12_i2c {
+ status = "ok";
+ cs35l36_codec1: cs35l36@40 {
+
+  compatible = "cirrus,cs35l36";
+  reg = <0x40>;
+  reset-gpios = <&tlmm 112 0>;
+  irq-gpio = <&tlmm 115 0>;
+  VA-supply = <&pm8998_s4>;
+  interrupt-parent = <&tlmm>;
+  interrupts = <115 8>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&cs35l36_reset_bottom &cs35l36_irq_bottom>;
+  cirrus,boost-ind-nanohenry = <1000>;
+  cirrus,boost-ctl-select = <0x01>;
+  cirrus,boost-ctl-millivolt = <10000>;
+  cirrus,boost-peak-milliamp = <3700>;
+  cirrus,amp-gain-zc;
+  cirrus,ldm-mode-select = <0x01>;
+  cirrus,pdm-ldm-exit;
+  cirrus,pdm-ldm-enter;
+  cirrus,weak-fet-delay = <0x04>;
+  cirrus,weak-fet-thld = <0x01>;
+  cirrus,temp-warn-threshold = <0x01>;
+  cirrus,multi-amp-mode;
+
+  cirrus,irq-config {
+   cirrus,irq-drive-select = <0x00>;
+   cirrus,irq-polarity = <0x00>;
+   cirrus,irq-gpio-select = <0x00>;
+   cirrus,irq-output-enable = <0x01>;
+   cirrus,irq-src-select = <0x01>;
+  };
+ };
+
+ cs35l36_codec2: cs35l36@41 {
+
+  compatible = "cirrus,cs35l36";
+  reg = <0x41>;
+  reset-gpios = <&tlmm 75 0>;
+  irq-gpio = <&tlmm 40 0>;
+  VA-supply = <&pm8998_s4>;
+  interrupt-parent = <&tlmm>;
+  interrupts = <40 8>;
+  pinctrl-names = "default";
+  pinctrl-0 = <&cs35l36_reset_top &cs35l36_irq_top>;
+  cirrus,boost-ind-nanohenry = <1000>;
+  cirrus,boost-ctl-select = <0x01>;
+  cirrus,boost-ctl-millivolt = <10000>;
+  cirrus,boost-peak-milliamp = <3700>;
+  cirrus,amp-gain-zc;
+  cirrus,ldm-mode-select = <0x01>;
+  cirrus,pdm-ldm-exit;
+  cirrus,pdm-ldm-enter;
+  cirrus,weak-fet-delay = <0x04>;
+  cirrus,weak-fet-thld = <0x01>;
+  cirrus,temp-warn-threshold = <0x01>;
+  cirrus,multi-amp-mode;
+
+  cirrus,irq-config {
+   cirrus,irq-drive-select = <0x00>;
+   cirrus,irq-polarity = <0x00>;
+   cirrus,irq-gpio-select = <0x00>;
+   cirrus,irq-output-enable = <0x01>;
+   cirrus,irq-src-select = <0x01>;
+  };
+ };
+};
+# 17 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 1
+# 13 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi"
+&vendor {
+ b1_batterydata: qcom,battery-data {
+  qcom,batt-id-range-pct = <10>;
+
+
+
+
+
+
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-qcom-b1-10k.dtsi" 1
+
+qcom,b1-10k {
+ qcom, = <24>;
+
+ qcom,max-voltage-uv = <4400000>;
+ qcom,nom-batt-capacity-mah = <2970>;
+ qcom,batt-id-kohm = <10>;
+ qcom,battery-beta = <4360>;
+ qcom,fg-cc-cv-threshold-mv = <4390>;
+ qcom,battery-type = "b1-10k";
+ qcom,checksum = <0xBD5A>;
+ qcom,gui-version = "PMI8998GUI - 2.0.0.58";
+ qcom,fg-profile-data = [
+   17 20 1C 05
+   C3 0A 31 FC
+   F8 1C 99 01
+   EA 04 99 03
+   F6 17 BE 23
+   76 44 49 5A
+   85 00 00 00
+   10 00 00 00
+   00 00 22 A5
+   4D CD 96 B3
+   20 00 08 00
+   6B DB D2 07
+   27 06 20 01
+   E2 04 CA 0B
+   67 EC 7D 32
+   1F 06 09 20
+   27 00 14 00
+   AB 1F AC 05
+   66 0A 5E 06
+   C3 1C 18 03
+   D5 15 63 12
+   7B 18 27 2A
+   5B 4D 3F 62
+   67 00 00 00
+   0C 00 00 00
+   00 00 9A D5
+   3E CA BD BB
+   1A 00 00 00
+   07 EA D2 07
+   63 FD EB F2
+   31 F4 05 03
+   52 EA 76 1A
+   B1 33 CC FF
+   07 10 00 00
+   99 0B 66 46
+   1A 00 40 00
+   B0 01 0A FA
+   FF 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+ ];
+};
+# 23 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-qcom-b1-22k.dtsi" 1
+
+qcom,b1-22k {
+ qcom, = <24>;
+
+ qcom,max-voltage-uv = <4400000>;
+ qcom,nom-batt-capacity-mah = <2970>;
+ qcom,batt-id-kohm = <22>;
+ qcom,battery-beta = <4360>;
+ qcom,fg-cc-cv-threshold-mv = <4390>;
+ qcom,battery-type = "b1-22k";
+ qcom,checksum = <0x74FF>;
+ qcom,gui-version = "PMI8998GUI - 2.0.0.58";
+ qcom,fg-profile-data = [
+   5E 1F EE 05
+   25 0A 5F FD
+   F0 1C 83 FB
+   42 04 27 0A
+   71 18 49 23
+   00 45 C1 53
+   7A 00 00 00
+   11 00 00 00
+   00 00 15 BD
+   A2 CD 2E C2
+   22 00 08 00
+   FB DB BC E4
+   5D FC 33 FA
+   85 06 C3 0B
+   43 DB 2F 32
+   22 06 09 20
+   27 00 14 00
+   90 1F D9 05
+   38 0A 27 FD
+   C7 1C 09 03
+   E3 15 51 12
+   7F 18 27 2A
+   5B 4D 40 62
+   67 00 00 00
+   0C 00 00 00
+   00 00 0C CC
+   CE CA 6B B4
+   1C 00 00 00
+   47 EA BC E4
+   C6 06 97 F2
+   97 F5 24 03
+   19 FA 56 1A
+   B3 33 CC FF
+   07 10 00 00
+   A1 0B 66 46
+   1C 00 40 00
+   AD 01 0A FA
+   FF 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+ ];
+};
+# 24 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-qcom-b1-47k.dtsi" 1
+
+qcom,b1-47k {
+ qcom, = <24>;
+
+ qcom,max-voltage-uv = <4400000>;
+ qcom,nom-batt-capacity-mah = <2970>;
+ qcom,batt-id-kohm = <47>;
+ qcom,battery-beta = <4360>;
+ qcom,fg-cc-cv-threshold-mv = <4390>;
+ qcom,battery-type = "b1-47k";
+ qcom,checksum = <0x393A>;
+ qcom,gui-version = "PMI8998GUI - 2.0.0.58";
+ qcom,fg-profile-data = [
+   FD 1F 43 05
+   9C 0A 46 06
+   F9 1C 99 01
+   E6 04 98 03
+   B5 17 D1 23
+   7E 44 33 5A
+   85 00 00 00
+   11 00 00 00
+   00 00 CD C4
+   36 C5 68 C3
+   1E 00 08 00
+   74 DB 1A E4
+   DB FD 8A EB
+   97 FB 82 12
+   8F DA C4 32
+   19 06 09 20
+   27 00 14 00
+   DF 1F 75 05
+   86 0A 91 FC
+   D1 1C D0 02
+   43 0C 03 12
+   91 18 D3 23
+   E8 4D 2E 5B
+   6D 00 00 00
+   0E 00 00 00
+   00 00 F8 07
+   89 BB AD CA
+   19 00 00 00
+   0A EB 1A E4
+   1D 07 01 EB
+   64 EA 23 0A
+   87 FA 79 1A
+   AE 33 CC FF
+   07 10 00 00
+   B6 0B 66 46
+   19 00 40 00
+   B1 01 0A FA
+   FF 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+ ];
+};
+# 25 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-qcom-b1-68k.dtsi" 1
+
+qcom,b1-68k {
+ qcom, = <24>;
+
+ qcom,max-voltage-uv = <4400000>;
+ qcom,nom-batt-capacity-mah = <2970>;
+ qcom,batt-id-kohm = <68>;
+ qcom,battery-beta = <4360>;
+ qcom,fg-cc-cv-threshold-mv = <4390>;
+ qcom,battery-type = "b1-68k";
+ qcom,checksum = <0xDF92>;
+ qcom,gui-version = "PMI8998GUI - 2.0.0.58";
+ qcom,fg-profile-data = [
+   65 1F EA 05
+   25 0A B2 06
+   F6 1C B6 01
+   63 04 18 0A
+   2B 18 99 23
+   9B 44 31 5A
+   7B 00 00 00
+   10 00 00 00
+   00 00 FC 07
+   36 C5 DE C3
+   1F 00 08 00
+   D8 DB BF 07
+   F4 06 B3 EB
+   B4 01 6C 12
+   D9 FC 45 2B
+   19 06 09 20
+   27 00 14 00
+   EB 1F 6B 05
+   8B 0A 8D FC
+   D6 1C C0 02
+   65 0C DD 0B
+   8E 18 D8 23
+   E4 4D 34 5B
+   6F 00 00 00
+   0E 00 00 00
+   00 00 40 CD
+   D8 BB 96 B3
+   1B 00 00 00
+   1C EB BF 07
+   DF F4 5C EA
+   2E EA DA 03
+   AB F3 C5 1A
+   AB 33 CC FF
+   07 10 00 00
+   A6 0B 66 46
+   1B 00 40 00
+   A4 01 0A FA
+   FF 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+ ];
+};
+# 26 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-qcom-b1-100k.dtsi" 1
+
+qcom,b1-100k {
+ qcom, = <24>;
+
+ qcom,max-voltage-uv = <4400000>;
+ qcom,nom-batt-capacity-mah = <2970>;
+ qcom,batt-id-kohm = <100>;
+ qcom,battery-beta = <4360>;
+ qcom,battery-type = "b1-100k";
+ qcom,checksum = <0xB33E>;
+ qcom,gui-version = "PMI8998GUI - 2.0.0.58";
+ qcom,fg-profile-data = [
+   01 1F 55 06
+   A4 03 0A F4
+   D4 1C FF FB
+   B4 0D 97 0A
+   1A 18 5E 23
+   05 45 9F 53
+   72 00 00 00
+   11 00 00 00
+   00 00 03 00
+   1F CD 6B B4
+   2C 00 08 00
+   23 E2 5F E4
+   1F 05 E1 01
+   5E 15 39 F5
+   DE F4 8B 2A
+   38 06 09 20
+   27 00 14 00
+   C3 1F AF 05
+   4B 0A 15 FD
+   BD 1C 1B 03
+   E7 15 39 12
+   8E 18 EA 23
+   C8 4D 7D 5B
+   6B 00 00 00
+   0D 00 00 00
+   00 00 82 CC
+   D8 C2 F9 B2
+   1D 00 00 00
+   52 00 5F E4
+   4C 06 A9 F3
+   23 ED 07 03
+   17 F5 50 22
+   B6 33 CC FF
+   07 10 00 00
+   AB 0B 66 46
+   1D 00 40 00
+   CF 01 0A FA
+   FF 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+   00 00 00 00
+ ];
+};
+# 27 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+};
+
+&pmi8998_fg {
+ qcom,battery-data = <&b1_batterydata>;
+ qcom,fg-chg-term-current = <145>;
+ qcom,fg-sys-term-current = <(-181)>;
+};
+
+&google_charger {
+ google,chg-battery-capacity = <2915>;
+ google,wlc-power-supply = "wireless";
+};
+
+&vendor {
+ b1_maxim_config: maxim,config {
+  maxim,b1-10k {
+   maxim,batt-id-kohm = <10>;
+   maxim,capacity-rcomp0 = <0x203f>;
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-maxim-b1-10k.dtsi" 1
+maxim,n_regval = /bits/ 16 <
+
+
+ 0x80 0x0020
+ 0x81 0x004E
+ 0x82 0x0AEC
+ 0x83 0x0D01
+ 0x84 0x1EBB
+ 0x85 0x1E4E
+ 0x86 0x10F0
+ 0x87 0x10D9
+ 0x88 0x08D7
+ 0x89 0x0800
+ 0x8A 0x07A7
+ 0x8B 0x0744
+ 0x90 0x88DB
+ 0x91 0x8908
+ 0x92 0xB54A
+ 0x93 0xBA9B
+ 0x94 0xBC0D
+ 0x95 0xBCA4
+ 0x96 0xBEBC
+ 0x97 0xBFE4
+ 0x98 0xC114
+ 0x99 0xC78D
+ 0x9A 0xCA83
+ 0x9B 0xCD92
+ 0x9E 0xA561
+ 0xB1 0x0204
+ 0xB5 0x9C01
+ 0xB6 0x0000
+ 0xB9 0xA00E
+ 0xBB 0x0002
+ 0xC3 0x7F80
+ 0xC7 0x0000
+ 0xC9 0x002F
+ 0xCA 0xF1F1
+ 0xCB 0x198A
+>;
+# 47 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+  maxim,b1-22k {
+   maxim,batt-id-kohm = <22>;
+   maxim,capacity-rcomp0 = <0x203b>;
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-maxim-b1-22k.dtsi" 1
+maxim,n_regval = /bits/ 16 <
+
+
+ 0x80 0x0021
+ 0x81 0x0027
+ 0x82 0x0397
+ 0x83 0x0A81
+ 0x84 0x18E8
+ 0x85 0x1BCF
+ 0x86 0x0FF0
+ 0x87 0x0A38
+ 0x88 0x0989
+ 0x89 0x0800
+ 0x8A 0x0797
+ 0x8B 0x0744
+ 0x90 0x7D0B
+ 0x91 0x7D47
+ 0x92 0xB1BD
+ 0x93 0xB91B
+ 0x94 0xBB3D
+ 0x95 0xBCED
+ 0x96 0xBEEC
+ 0x97 0xC124
+ 0x98 0xC27F
+ 0x99 0xC80D
+ 0x9A 0xCB04
+ 0x9B 0xCDF1
+ 0x9E 0xA561
+ 0xB1 0x0204
+ 0xB5 0x9C01
+ 0xB6 0x0000
+ 0xB9 0xA00E
+ 0xBB 0x0002
+ 0xC3 0x7F80
+ 0xC7 0x0000
+ 0xC9 0x002F
+ 0xCA 0xF1F1
+ 0xCB 0x198A
+>;
+# 52 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+  maxim,b1-47k {
+   maxim,batt-id-kohm = <47>;
+   maxim,capacity-rcomp0 = <0x203d>;
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-maxim-b1-47k.dtsi" 1
+maxim,n_regval = /bits/ 16 <
+
+
+ 0x80 0x0020
+ 0x81 0x004F
+ 0x82 0x01E1
+ 0x83 0x1081
+ 0x84 0x13F7
+ 0x85 0x1DEE
+ 0x86 0x0EB0
+ 0x87 0x0C98
+ 0x88 0x08C3
+ 0x89 0x0800
+ 0x8A 0x0737
+ 0x8B 0x0766
+ 0x90 0x7EBB
+ 0x91 0x7F27
+ 0x92 0xAF4C
+ 0x93 0xB9FB
+ 0x94 0xBB4D
+ 0x95 0xBC7B
+ 0x96 0xBF3C
+ 0x97 0xC0D5
+ 0x98 0xC2D9
+ 0x99 0xC8BD
+ 0x9A 0xCD55
+ 0x9B 0xD255
+ 0x9E 0xA561
+ 0xB1 0x0204
+ 0xB5 0x9C01
+ 0xB6 0x0000
+ 0xB9 0xA00E
+ 0xBB 0x0002
+ 0xC3 0x7F80
+ 0xC7 0x0000
+ 0xC9 0x002F
+ 0xCA 0xF1F1
+ 0xCB 0x198A
+>;
+# 57 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+  maxim,b1-68k {
+   maxim,batt-id-kohm = <68>;
+   maxim,capacity-rcomp0 = <0x2048>;
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-maxim-b1-68k.dtsi" 1
+maxim,n_regval = /bits/ 16 <
+
+
+ 0x80 0x0021
+ 0x81 0x0081
+ 0x82 0x03E1
+ 0x83 0x0D81
+ 0x84 0x1604
+ 0x85 0x24B6
+ 0x86 0x12F0
+ 0x87 0x0869
+ 0x88 0x0A01
+ 0x89 0x07E0
+ 0x8A 0x0797
+ 0x8B 0x0700
+ 0x90 0x946B
+ 0x91 0x94C7
+ 0x92 0xB549
+ 0x93 0xB8FB
+ 0x94 0xBB5D
+ 0x95 0xBC87
+ 0x96 0xBF0C
+ 0x97 0xC116
+ 0x98 0xC322
+ 0x99 0xC86D
+ 0x9A 0xCAD1
+ 0x9B 0xCE17
+ 0x9E 0xA561
+ 0xB1 0x0204
+ 0xB5 0x9C01
+ 0xB6 0x0000
+ 0xB9 0xA00E
+ 0xBB 0x0002
+ 0xC3 0x7F80
+ 0xC7 0x0000
+ 0xC9 0x002F
+ 0xCA 0xF1F1
+ 0xCB 0x198A
+>;
+# 62 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+  maxim,b1-180k {
+   maxim,batt-id-kohm = <100>;
+
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/batterydata-maxim-b1-100k.dtsi" 1
+maxim,n_regval = /bits/ 16 <
+
+
+ 0x80 0x0021
+ 0x81 0x002A
+ 0x82 0x0314
+ 0x83 0x0C21
+ 0x84 0x0F2A
+ 0x85 0x1670
+ 0x86 0x1A40
+ 0x87 0x0EDA
+ 0x88 0x07EB
+ 0x89 0x06F0
+ 0x8A 0x0887
+ 0x8B 0x07BB
+ 0x90 0x7D0B
+ 0x91 0x7D37
+ 0x92 0xAE25
+ 0x93 0xB83B
+ 0x94 0xB9CC
+ 0x95 0xBB09
+ 0x96 0xBDFC
+ 0x97 0xBED3
+ 0x98 0xC105
+ 0x99 0xC62D
+ 0x9A 0xC9C2
+ 0x9B 0xCCB4
+ 0x9E 0xA561
+ 0xB1 0x0204
+ 0xB5 0x9C01
+ 0xB6 0x0000
+ 0xB9 0xA00E
+ 0xBB 0x0002
+ 0xC3 0x7F80
+ 0xC7 0x0000
+ 0xC9 0x002F
+ 0xCA 0xF1F1
+ 0xCB 0x198A
+>;
+# 66 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-battery.dtsi" 2
+ };
+ };
+};
+
+&max1720x_fg {
+ maxim,capacity-reset-cnt;
+
+ maxim,capacity-stable = <5>;
+ maxim,capacity-fade = <4000>;
+ maxim,capacity-design = <2915>;
+ maxim,capacity-tempco = <0x2226>;
+
+ maxim,config = <&b1_maxim_config>;
+ maxim,n_regval = /bits/ 16 <
+     0x9C 0x0300
+     0xB7 0x33C1
+     0x9F 0x2606
+     0xB0 0x7217
+     0xC0 0xFF00
+     0xC1 0x7F80
+     0xC2 0xFF00
+     0x9D 0x0EB4
+     0xC6 0x5A05
+     0xD5 0x2D7D
+     0xB8 0xCDF0
+     0xB9 0xB00E
+     0xBA 0xFF0A
+     0xB3 0x0B80
+ >;
+};
+
+&soc {
+ google,overheat_mitigation {
+  google,begin-mitigation-temp = <550>;
+  google,end-mitigation-temp = <450>;
+ };
+};
+# 18 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common.dtsi" 2
+
+&dsi_sw43408_cmd_display {
+ qcom,dsi-display-active;
+};
+
+&p9221 {
+ fod = [a8 28 86 34 82 38 9a 12 9c 0b 84 65];
+ fod_epp = [a4 2a 86 36 84 3d 9a 14 9d 0b a2 fb];
+};
+
+&actuator_rear {
+ param-index = <5>;
+};
+# 2 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-common-v2.1.dtsi" 2
+
+/ {
+ qcom,msm-id = <321 0x20001>;
+};
+# 17 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-patherm.dtsi" 1
+
+&pm8998_vadc {
+ chan@50 {
+  label = "pa_therm";
+  reg = <0x50>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+};
+
+&pm8998_adc_tm {
+ chan@50 {
+  label = "pa_therm";
+  reg = <0x50>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x90>;
+  qcom,thermal-node;
+ };
+};
+
+&thermal_zones {
+ pa-therm-adc {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x50>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+};
+# 18 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-usbctherm.dtsi" 1
+&pm8998_gpios {
+ usbc_therm_gpio {
+  usbc_therm_gpiocfg: usbc_therm_gpiocfg {
+   pins = "gpio11";
+   function="analog";
+   bias-high-impedance;
+  };
+ };
+};
+
+&pm8998_vadc {
+    pinctrl-names = "default";
+    pinctrl-0 = <&usbc_therm_gpiocfg>;
+
+
+ chan@55 {
+  label = "usbc_therm";
+  reg = <0x55>;
+  qcom,decimation = <2>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,fast-avg-setup = <0>;
+ };
+};
+
+&pm8998_adc_tm {
+ chan@55 {
+  label = "usbc_therm";
+  reg = <0x55>;
+  qcom,pre-div-channel-scaling = <0>;
+  qcom,calibration-type = "ratiometric";
+  qcom,scale-function = <2>;
+  qcom,hw-settle-time = <2>;
+  qcom,btm-channel-number = <0x80>;
+  qcom,thermal-node;
+ };
+};
+
+&thermal_zones {
+ usbc-therm-monitor {
+  polling-delay-passive = <0>;
+  polling-delay = <0>;
+  thermal-sensors = <&pm8998_adc_tm 0x55>;
+  thermal-governor = "user_space";
+
+  trips {
+   active-config0 {
+    temperature = <125000>;
+    hysteresis = <10000>;
+    type = "passive";
+   };
+  };
+ };
+};
+# 19 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-usb-v3.dtsi" 1
+
+
+&qusb_phy0 {
+ qcom,qusb-phy-init-seq =
+
+   <0x23 0x210
+    0x03 0x04
+    0x7c 0x18c
+    0x80 0x2c
+    0x0a 0x184
+    0x19 0xb4
+    0x40 0x194
+    0x20 0x198
+    0x21 0x214
+    0x00 0x220
+    0x58 0x224
+    0x37 0x240
+    0x29 0x244
+    0xca 0x248
+    0x04 0x24c
+    0x03 0x250
+    0x00 0x23c
+    0x22 0x210>;
+};
+# 20 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+# 1 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-audio-cal.dtsi" 1
+&soc {
+ msm_cirrus_playback {
+
+  cirrus,top-speaker-impedance = <10811>;
+
+
+  cirrus,top-speaker-tolerance = <10>;
+
+
+  cirrus,top-speaker-mean = <9730>;
+
+
+  cirrus,bottom-speaker-impedance = <9860>;
+
+
+  cirrus,bottom-speaker-tolerance = <10>;
+
+
+  cirrus,bottom-speaker-mean = <8874>;
+ };
+};
+# 21 "/home/moe-hacker/kernel/private/msm-google/arch/arm64/boot/dts/google/sdm845-b1-dvt1.1.dts" 2
+
+/ {
+ model = "Google Inc. MSM sdm845 B1 DVT1.1";
+ compatible = "google,b1c1-sdm845", "qcom,sdm845";
+ qcom,board-id = <0x00021505 0>;
+};
