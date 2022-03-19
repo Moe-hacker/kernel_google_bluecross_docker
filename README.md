@@ -1,7 +1,8 @@
 由萌新构建，运行于谷歌pixel3的支持docker的安卓内核。  
-目前docker理论上可正常运行。  
+目前docker可正常运行。  
 有问题别找我了，我也只能帮大家到这里了。   
 用法：  
+刷入PE系统，不要用官方系统否则无法使用wifi.     
 将Image.lz4-dtb复制到电脑。  
 将wlan.ko放置在手机的/sdcard下。
 手机重启至fastboot，使用：  
