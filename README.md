@@ -9,5 +9,11 @@ Magisk安装release中的docker.zip
 ```log
 docker: Error response from daemon: OCI runtime create failed: container_linux.go:370: starting container process caused: process_linux.go:326: applying cgroup configuration for process caused: mountpoint for devices not found: unknown.
 ```
-那我也没办法了。  
+那么您需要手动挂载cgroup(root权限执行):
+```sh
+mount -t tmpfs -o mode=755 tmpfs /sys/fs/cgroup
+mkdir -p /sys/fs/cgroup/devices
+mount -t cgroup -o devices cgroup /sys/fs/cgroup/devices
+```  
+然后，重启docker即可。  
 注：容器中没网可通过在容器中执行以下来自tmoe的脚本解决：https://github.com/Moe-hacker/termux-container/blob/main/group_add.sh
