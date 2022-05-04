@@ -2,7 +2,7 @@
 需要系统安卓12   
 目前docker可正常运行。     
 用法：  
-刷入PE系统或pixeldust，不要用官方系统否则无法使用wifi.     
+刷入PE系统或pixeldust等非官方系统，不要用官方系统否则无法使用wifi.     
 刷入release中的boot.img.   
 Magisk安装release中的docker.zip  
 然后docker就能正常使用了。    
